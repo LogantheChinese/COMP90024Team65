@@ -1,0 +1,2 @@
+Mastodon.py==1.6.1
+couchdb==1.2
