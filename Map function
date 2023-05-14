@@ -1,8 +1,8 @@
 function (doc) {
-
+    // get time
     var createdAt = new Date(doc.data.created_at);
 
-
+    // time filter
     if (createdAt.getFullYear() < 2021) {
         return;
     }
