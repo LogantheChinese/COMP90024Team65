@@ -8,7 +8,7 @@ function (doc) {
     }
 
     var content = doc.data.text;
-    var keywords = ['Kindness'];  // 你关心的关键词列表
+    var keywords = ['Kindness'];  
     var foundKeywords = [];
 
 
