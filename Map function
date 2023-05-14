@@ -1,6 +1,14 @@
 function (doc) {
+    // 解析推特的创建时间
+    var createdAt = new Date(doc.data.created_at);
+
+    // 如果推特是在2021年之前创建的，那么直接返回，不进行处理
+    if (createdAt.getFullYear() < 2021) {
+        return;
+    }
+
     var content = doc.data.text;
-    var keywords = ['关键词1', '关键词2', '关键词3']; 
+    var keywords = ['Kindness'];  // 你关心的关键词列表
     var foundKeywords = [];
 
     // 检查内容中的关键词
@@ -25,3 +33,4 @@ function (doc) {
         emit([geoClass, keyword], 1);
     });
 }
+
