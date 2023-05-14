@@ -1,0 +1,71 @@
+---
+- name: Create master nodes
+  openstack.cloud.server:
+    cloud: "{{ cloud_name }}"
+    name: "master-node-{{ item }}"
+    image: "{{ instance_image }}"
+    flavor: "{{ node_instance_type }}"
+    availability_zone: "{{ availability_zone }}"
+    key_name: "{{ key_pair_name }}"
+    security_groups: "{{ security_groups | map(attribute='name') | list }}"
+    volumes:
+      - "master-volume-{{ item }}"
+    state: present
+    auto_ip: true
+    wait: true
+  loop: "{{ range(0, master_node_count) | list }}"
+  register: master_node
+
+- name: Create worker nodes
+  openstack.cloud.server:
+    cloud: "{{ cloud_name }}"
+    name: "worker-node-{{ item }}"
+    image: "{{ instance_image }}"
+    flavor: "{{ node_instance_type }}"
+    availability_zone: "{{ availability_zone }}"
+    key_name: "{{ key_pair_name }}"
+    security_groups: "{{ security_groups | map(attribute='name') | list }}"
+    volumes:
+      - "worker-volume-{{ item }}"
+    state: present
+    auto_ip: true
+    wait: true
+  loop: "{{ range(0, worker_node_count) | list }}"
+  register: worker_node
+
+- name: Wait for master nodes to be ready
+  wait_for:
+    host: "{{ item.server.addresses['qh2-uom-internal'][0].addr }}"
+    port: 22
+    delay: 10
+    timeout: 300
+  loop: "{{ master_node.results }}"
+  when: item.server is defined
+
+- name: Wait for worker nodes to be ready
+  wait_for:
+    host: "{{ item.server.addresses['qh2-uom-internal'][0].addr }}"
+    port: 22
+    delay: 10
+    timeout: 300
+  loop: "{{ worker_node.results }}"
+  when: item.server is defined
+
+- name: Add master nodes to inventory
+  ansible.builtin.add_host:
+    name: "{{ item.server.addresses['qh2-uom-internal'][0].addr }}"
+    groups: master-nodes
+  loop: "{{ master_node.results }}"
+  when: item.server is defined
+
+- name: Add worker nodes to inventory
+  ansible.builtin.add_host:
+    name: "{{ item.server.addresses['qh2-uom-internal'][0].addr }}"
+    groups: worker-nodes
+  loop: "{{ worker_node.results }}"
+  when: item.server is defined
+
+- name: Add master and worker nodes to inventory.ini
+  ansible.builtin.template:
+    src: inventory.ini.j2
+    dest: ./inventory.ini

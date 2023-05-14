@@ -1,0 +1,19 @@
+---
+- name: Create security group
+  openstack.cloud.security_group:
+    cloud: "{{ cloud_name }}"
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    state: present
+  loop: "{{ security_groups }}"
+
+- name: Add necessary ports to security group
+  openstack.cloud.security_group_rule:
+    cloud: "{{ cloud_name }}"
+    security_group: "{{ item.0.name }}"
+    protocol: "{{ item.1.protocol }}"
+    port_range_min: "{{ item.1.from_port }}"
+    port_range_max: "{{ item.1.to_port }}"
+    remote_ip_prefix: "{{ item.1.cidr_ip }}"
+    state: present
+  loop: "{{ security_groups | subelements('rules') }}"

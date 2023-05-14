@@ -1,0 +1,7 @@
+---
+- name: Create key pair
+  openstack.cloud.keypair:
+    cloud: "{{ cloud_name }}"
+    name: "{{ key_pair_name }}"
+    public_key_file: ./.ssh/id_rsa.pub
+    state: present
