@@ -8,6 +8,7 @@ function (doc) {
     }
 
     var content = doc.data.text;
+    // define keywords
     var keywords = ['Kindness'];  
     var foundKeywords = [];
 
