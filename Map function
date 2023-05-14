@@ -1,8 +1,8 @@
 function (doc) {
-    // 解析推特的创建时间
+
     var createdAt = new Date(doc.data.created_at);
 
-    // 如果推特是在2021年之前创建的，那么直接返回，不进行处理
+
     if (createdAt.getFullYear() < 2021) {
         return;
     }
@@ -11,24 +11,24 @@ function (doc) {
     var keywords = ['Kindness'];  // 你关心的关键词列表
     var foundKeywords = [];
 
-    // 检查内容中的关键词
+
     keywords.forEach(function(keyword) {
         if (content.indexOf(keyword) !== -1) {
             foundKeywords.push(keyword);
         }
     });
 
-    // 使用 Set 数据结构去除重复关键词
+
     var uniqueKeywords = Array.from(new Set(foundKeywords));
 
-    // 如果推特包含地理信息，将其解析为地理分类
+
     var geoClass = 'Unknown';
     if (doc.includes && doc.includes.places && doc.includes.places.length > 0) {
         var bbox = doc.includes.places[0].geo.bbox;
         geoClass = bbox.join(',');
     }
 
-    // 对于每个找到的（且唯一的）关键词，发射一个键值对
+
     uniqueKeywords.forEach(function(keyword) {
         emit([geoClass, keyword], 1);
     });
