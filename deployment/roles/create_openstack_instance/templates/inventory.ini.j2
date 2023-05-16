@@ -11,3 +11,22 @@
 {{ item.server.addresses['qh2-uom-internal'][0].addr }}
 {% endif %}
 {% endfor %}
+
+#Kubespray groups:
+[kube_node:children]
+master-nodes
+worker-nodes
+
+[k8s_cluster:children]
+master-nodes
+worker-nodes
+
+[etcd:children]
+master-nodes
+
+[kube_control_plane:children]
+master-nodes
+
+[all:children]
+master-nodes
+worker-nodes

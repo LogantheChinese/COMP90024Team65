@@ -38,7 +38,7 @@
     host: "{{ item.server.addresses['qh2-uom-internal'][0].addr }}"
     port: 22
     delay: 10
-    timeout: 300
+    timeout: 1800
   loop: "{{ master_node.results }}"
   when: item.server is defined
 
@@ -47,7 +47,7 @@
     host: "{{ item.server.addresses['qh2-uom-internal'][0].addr }}"
     port: 22
     delay: 10
-    timeout: 300
+    timeout: 1800
   loop: "{{ worker_node.results }}"
   when: item.server is defined
 
@@ -68,4 +68,4 @@
 - name: Add master and worker nodes to inventory.ini
   ansible.builtin.template:
     src: inventory.ini.j2
-    dest: ./inventory.ini
+    dest: ./inventory/mycluster/inventory.ini

@@ -1,0 +1,81 @@
+---
+# Cluster Configuration
+master_node_count: 2
+worker_node_count: 2
+node_instance_type: uom.mse.2c9g
+master_node_volume_size: 50
+worker_node_volume_size: 200
+cloud_name: mrc
+key_pair_name: key_ccc
+availability_zone: melbourne-qh2-uom
+instance_image: 08158d7c-979a-41b9-baea-b5d7ce59dc64 # NeCTAR Ubuntu 20.04 LTS (Focal) amd64
+
+# Security Group Configuration
+security_groups:
+  - name: kubernetes_ccc
+    description: Kubernetes Security Group
+    rules:
+      # Kubernetes API Server
+      - protocol: tcp
+        from_port: 6443
+        to_port: 6443
+        cidr_ip: 0.0.0.0/0
+      # Etcd
+      - protocol: tcp
+        from_port: 2379
+        to_port: 2380
+        cidr_ip: 0.0.0.0/0
+      # Master
+      - protocol: tcp
+        from_port: 10250
+        to_port: 10258
+        cidr_ip: 0.0.0.0/0
+      # NodePort Services
+      - protocol: tcp
+        from_port: 30000
+        to_port: 32767
+        cidr_ip: 0.0.0.0/0
+      # Calico
+      - protocol: tcp
+        from_port: 9099
+        to_port: 9100
+        cidr_ip: 0.0.0.0/0
+      # Bgp
+      - protocol: tcp
+        from_port: 179
+        to_port: 179
+        cidr_ip: 0.0.0.0/0
+      # Dns
+      - protocol: tcp
+        from_port: 53
+        to_port: 53
+        cidr_ip: 0.0.0.0/0
+      - protocol: udp
+        from_port: 53
+        to_port: 53
+        cidr_ip: 0.0.0.0/0
+      
+  - name: common_ccc
+    description: Common Security Group
+    rules:
+      # SSH
+      - protocol: tcp
+        from_port: 22
+        to_port: 22
+        cidr_ip: 0.0.0.0/0
+      # ICMP
+      - protocol: icmp
+        from_port: -1
+        to_port: -1
+        cidr_ip: 0.0.0.0/0
+      # HTTP
+      - protocol: tcp
+        from_port: 80
+        to_port: 80
+        cidr_ip: 0.0.0.0/0
+      # HTTPS
+      - protocol: tcp
+        from_port: 443
+        to_port: 443
+        cidr_ip: 0.0.0.0/0
+  

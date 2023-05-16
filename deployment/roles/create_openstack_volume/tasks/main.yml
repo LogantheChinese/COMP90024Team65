@@ -3,7 +3,7 @@
   openstack.cloud.volume:
     cloud: "{{ cloud_name }}"
     display_name: "master-volume-{{ item }}"
-    size: "{{ node_volume_size }}"
+    size: "{{ master_node_volume_size }}"
     state: present
     availability_zone: "{{ availability_zone }}"
   loop: "{{ range(0, master_node_count) | list }}"
@@ -12,7 +12,7 @@
   openstack.cloud.volume:
     cloud: "{{ cloud_name }}"
     display_name: "worker-volume-{{ item }}"
-    size: "{{ node_volume_size }}"
+    size: "{{ worker_node_volume_size }}"
     state: present
     availability_zone: "{{ availability_zone }}"
   loop: "{{ range(0, worker_node_count) | list }}"
