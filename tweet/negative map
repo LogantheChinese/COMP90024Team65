@@ -1,0 +1,56 @@
+function (doc) {
+  var year = doc.date.year;
+  var month = doc.date.month;
+
+  var locations = {};
+
+
+  if (doc.negative == 1) {
+    var geoClass = 'Unknown';
+      
+    geoClass = doc.city;
+      
+      
+      // Check if fullname contains "Adelaide"
+    if (getMatchedCity(geoClass) !== 'notgoal') {
+      geoClass = getMatchedCity(geoClass);
+      var locationKeyword = year + '/' + month + '|' + geoClass + '|negative';
+        
+      locations[locationKeyword] = 1;
+        
+      }
+    }
+
+  
+  function getMatchedCity(geoClass) {
+  if (geoClass.toLowerCase().includes("adelaide")) {
+    return "Adelaide";
+  } else if (geoClass.toLowerCase().includes("sydney")) {
+    return "Sydney";
+  } else if (geoClass.toLowerCase().includes("canberra")) {
+    return "Canberra";
+  } else if (geoClass.toLowerCase().includes("melbourne")) {
+    return "Melbourne";
+  } else if (geoClass.toLowerCase().includes("darwin")) {
+    return "Darwin";
+  } else if (geoClass.toLowerCase().includes("brisbane")) {
+    return "Brisbane";
+  } else if (geoClass.toLowerCase().includes("perth")) {
+    return "Perth";
+  } else if (geoClass.toLowerCase().includes("hobart")) {
+    return "Hobart";
+  } else {
+    return "notgoal";
+  }
+}
+
+  for (var locationKeywords in locations) {
+    emit(locationKeywords, 1);
+  }
+}
+
+// reduce function
+
+function (keys, values, rereduce) {
+  return sum(values);
+}
