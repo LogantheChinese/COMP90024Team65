@@ -1,0 +1,4 @@
+---
+# Volume
+volume_device: /dev/vdb
+volume_mount_point: /mnt/data

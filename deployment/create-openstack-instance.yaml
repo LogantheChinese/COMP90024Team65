@@ -1,0 +1,12 @@
+---
+- name: Create infrastructure resources on MRC
+  hosts: localhost
+  gather_facts: true
+  vars_files:
+    - vars/openstack_vars.yaml
+  roles:
+    - create_openstack_security_group
+    - create_openstack_key_pair
+    - create_openstack_volume
+    - create_openstack_instance
+

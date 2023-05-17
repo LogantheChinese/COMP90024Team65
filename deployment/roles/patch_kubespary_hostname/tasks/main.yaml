@@ -1,0 +1,5 @@
+---
+- name: Patch kubespary hostname setting
+  ansible.builtin.template:
+    src: main.yml.j2
+    dest: ./external/kubespray/roles/bootstrap-os/defaults/main.yml

@@ -1,0 +1,13 @@
+---
+- name: Create filesystem on OpenStack Volume
+  community.general.filesystem:
+    fstype: ext4
+    dev: "{{ volume_device }}"
+
+- name: Mount OpenStack Volume
+  ansible.builtin.mount:
+    path: "{{ volume_mount_point }}"
+    src: "{{ volume_device }}"
+    fstype: ext4
+    opts: defaults
+    state: mounted
