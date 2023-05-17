@@ -2,43 +2,61 @@
 - name: Create master nodes
   openstack.cloud.server:
     cloud: "{{ cloud_name }}"
-    name: "master-node-{{ item }}"
+    name: "master_node_{{ item }}"
     image: "{{ instance_image }}"
     flavor: "{{ node_instance_type }}"
     availability_zone: "{{ availability_zone }}"
     key_name: "{{ key_pair_name }}"
-    security_groups: "{{ security_groups | map(attribute='name') | list }}"
+    security_groups: "{{ (security_groups | map(attribute='name') | list) + ['default'] }}"
     volumes:
-      - "master-volume-{{ item }}"
+      - "master_volume_{{ item }}"
     state: present
-    auto_ip: true
+    auto_floating_ip: false
     wait: true
+    timeout: 600
   loop: "{{ range(0, master_node_count) | list }}"
   register: master_node
 
 - name: Create worker nodes
   openstack.cloud.server:
     cloud: "{{ cloud_name }}"
-    name: "worker-node-{{ item }}"
+    name: "worker_node_{{ item }}"
     image: "{{ instance_image }}"
     flavor: "{{ node_instance_type }}"
     availability_zone: "{{ availability_zone }}"
     key_name: "{{ key_pair_name }}"
-    security_groups: "{{ security_groups | map(attribute='name') | list }}"
+    security_groups: "{{ (security_groups | map(attribute='name') | list) + ['default'] }}"
     volumes:
-      - "worker-volume-{{ item }}"
+      - "worker_volume_{{ item }}"
     state: present
-    auto_ip: true
+    auto_floating_ip: false
     wait: true
+    timeout: 600
   loop: "{{ range(0, worker_node_count) | list }}"
   register: worker_node
+
+- name: Create auxiliary nodes
+  openstack.cloud.server:
+    cloud: "{{ cloud_name }}"
+    name: "auxiliary_node_{{ item }}"
+    image: "{{ instance_image }}"
+    flavor: "{{ auxiliary_node_instance_type }}"
+    availability_zone: "{{ availability_zone }}"
+    key_name: "{{ key_pair_name }}"
+    security_groups: "{{ (security_groups | map(attribute='name') | list) + ['default'] }}"
+    auto_floating_ip: false
+    wait: true
+    timeout: 600
+  loop: "{{ range(0, auxiliary_node_count) | list }}"
+  register: auxiliary_node
+
 
 - name: Wait for master nodes to be ready
   wait_for:
     host: "{{ item.server.addresses['qh2-uom-internal'][0].addr }}"
     port: 22
     delay: 10
-    timeout: 1800
+    timeout: 600
   loop: "{{ master_node.results }}"
   when: item.server is defined
 
@@ -47,25 +65,41 @@
     host: "{{ item.server.addresses['qh2-uom-internal'][0].addr }}"
     port: 22
     delay: 10
-    timeout: 1800
+    timeout: 600
   loop: "{{ worker_node.results }}"
+  when: item.server is defined
+
+- name: Wait for auxiliary nodes to be ready
+  wait_for:
+    host: "{{ item.server.addresses['qh2-uom-internal'][0].addr }}"
+    port: 22
+    delay: 10
+    timeout: 600
+  loop: "{{ auxiliary_node.results }}"
   when: item.server is defined
 
 - name: Add master nodes to inventory
   ansible.builtin.add_host:
     name: "{{ item.server.addresses['qh2-uom-internal'][0].addr }}"
-    groups: master-nodes
+    groups: master_nodes
   loop: "{{ master_node.results }}"
   when: item.server is defined
 
 - name: Add worker nodes to inventory
   ansible.builtin.add_host:
     name: "{{ item.server.addresses['qh2-uom-internal'][0].addr }}"
-    groups: worker-nodes
+    groups: worker_nodes
   loop: "{{ worker_node.results }}"
   when: item.server is defined
 
-- name: Add master and worker nodes to inventory.ini
+- name: Add auxiliary nodes to inventory
+  ansible.builtin.add_host:
+    name: "{{ item.server.addresses['qh2-uom-internal'][0].addr }}"
+    groups: auxiliary_nodes
+  loop: "{{ auxiliary_node.results }}"
+  when: item.server is defined
+
+- name: Add nodes to inventory.ini
   ansible.builtin.template:
     src: inventory.ini.j2
     dest: ./inventory/mycluster/inventory.ini

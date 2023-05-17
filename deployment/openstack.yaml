@@ -1,8 +1,0 @@
-# TODO: Dynamic inventory (maybe not necessary)
-plugin: openstack.cloud.openstack
-fail_on_errors: true
-all_projects: true
-cache: true
-cache_connection: ./inventory.yaml
-cache_plugin: community.general.yaml
-clouds_yaml_path: ./clouds.yaml

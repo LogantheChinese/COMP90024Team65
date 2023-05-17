@@ -1,14 +1,18 @@
 ---
 # Cluster Configuration
-master_node_count: 2
+master_node_count: 1
 worker_node_count: 2
+# Notice: Control node count + Master node count should be odd number
+auxiliary_node_count: 2
 node_instance_type: uom.mse.2c9g
-master_node_volume_size: 50
+auxiliary_node_instance_type: uom.mse.1c4g
+master_node_volume_size: 100
 worker_node_volume_size: 200
 cloud_name: mrc
 key_pair_name: key_ccc
 availability_zone: melbourne-qh2-uom
 instance_image: 08158d7c-979a-41b9-baea-b5d7ce59dc64 # NeCTAR Ubuntu 20.04 LTS (Focal) amd64
+#instance_image: bbaf16f8-2484-48d7-b455-42209cc4b8d2 # NeCTAR Ubuntu 22.04 LTS (Jammy) amd64
 
 # Security Group Configuration
 security_groups:

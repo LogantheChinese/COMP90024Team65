@@ -10,16 +10,3 @@
     - create_openstack_volume
     - create_openstack_instance
 
-- name: Environment setup for each node
-  hosts: all
-  gather_facts: true
-  vars_files:
-    - vars/cluster_vars.yaml
-  roles:
-    - node_environment_setup
-
-# - name: Install Kubernetes
-#   hosts: all
-#   roles:
-#     - install_kubernetes
-

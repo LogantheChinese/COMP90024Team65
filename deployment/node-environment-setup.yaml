@@ -1,0 +1,15 @@
+- name: Environment setup for each node
+  hosts: all
+  gather_facts: true
+  vars_files:
+    - vars/instance_vars.yaml
+  roles:
+    - node_environment_setup
+
+- name: Mount OpenStack volumes
+  hosts: master_nodes, worker_nodes
+  gather_facts: true
+  vars_files:
+    - vars/instance_vars.yaml
+  roles:
+    - node_volume_mount

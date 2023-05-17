@@ -1,49 +1,18 @@
 #!/bin/bash
 
-# func_init_deploy() {
-#     echo "Starting the initial deployment..."
-
-#     read -p "Enter the number of master nodes (default 1): " master_node_count
-#     read -p "Enter the number of worker nodes (default 1): " worker_node_count
-#     read -p "Enter the instance type (default m3.medium): " node_instance_type
-#     read -p "Enter the volume size (default 250G): " node_volume_size
-
-#     # If variables are empty, assign default values
-#     master_node_count=${master_node_count:-1}
-#     worker_node_count=${worker_node_count:-1}
-#     node_instance_type=${node_instance_type:-m3.medium}
-#     node_volume_size=${node_volume_size:-250}
-
-#     # Call the ansible-playbook command with the variables
-#     ansible-playbook playbook.yaml \
-#       -e master_node_count=$master_node_count \
-#       -e worker_node_count=$worker_node_count \
-#       -e node_instance_type=$node_instance_type \
-#       -e node_volume_size=$node_volume_size
-
-# }
-
-
 func_install_dependencies() {
     echo "Starting to install dependencies on local..."
     sleep 1
-    apt install python3-pip -y
-    pip install -r requirements.txt
+    sudo apt install python3-pip -y
+    sudo pip install -r requirements.txt
     ansible --version
     echo "Starting to install ansible galaxy collections..."
-    ansible-galaxy collection install openstack.cloud:2.1.0
-    ansible-galaxy collection install community.general
+    ansible-galaxy collection install openstack.cloud:2.1.0 --force
+    ansible-galaxy collection install community.general --force
 
     # Download the latest release of kubespray
     echo "Downloading kubespray..."
-    wget -i https://github.com/kubernetes-sigs/kubespray/archive/refs/tags/v2.21.0.tar.gz -O kubespray.tar.gz
-
-    # Extract the downloaded file into the ./external directory
-    echo "Extracting kubespray.tar.gz..."
-    mkdir -p ./external
-    tar -xzf kubespray.tar.gz -C ./external
-    mv ./external/kubespray-* ./external/kubespray
-    rm kubespray.tar.gz
+    git clone -b release-2.21 https://github.com/kubernetes-sigs/kubespray.git ./external/kubespray
 }
 
 func_generate_ssh_key() {
@@ -111,13 +80,33 @@ func_init_deploy() {
     sleep 1
 
     ansible-playbook create-openstack-instance.yaml
+    read -p "Do you want to continue (yes/no)? " CONTINUE
+    if [ "$CONTINUE" != "yes" ]; then
+        echo "Exiting deployment..."
+        exit 1
+    fi
+    
+    echo "Provision finished. Starting to setup basic environment"
+    sleep 1
+    
+    ansible-playbook node-environment-setup.yaml
+    read -p "Do you want to continue (yes/no)? " CONTINUE
+    if [ "$CONTINUE" != "yes" ]; then
+        echo "Exiting deployment..."
+        exit 1
+    fi
 
-    echo "Provision finished. Starting to deploy the cluster..."
+    echo "Environment setup finished. Starting to deploy the cluster..."
     sleep 1
 
     ansible-playbook create-kubernetes-cluster.yaml
+    read -p "Do you want to continue (yes/no)? " CONTINUE
+    if [ "$CONTINUE" != "yes" ]; then
+        echo "Exiting deployment..."
+        exit 1
+    fi
     
-    echo "Cluster deployment finished. Starting to deploy the applications..."
+    # echo "Cluster deployment finished. Starting to deploy the applications..."
 }
 
 func_submit_twitter_files() {

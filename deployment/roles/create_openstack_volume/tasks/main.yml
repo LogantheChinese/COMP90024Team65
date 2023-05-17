@@ -2,7 +2,7 @@
 - name: Create volumes for master nodes
   openstack.cloud.volume:
     cloud: "{{ cloud_name }}"
-    display_name: "master-volume-{{ item }}"
+    display_name: "master_volume_{{ item }}"
     size: "{{ master_node_volume_size }}"
     state: present
     availability_zone: "{{ availability_zone }}"
@@ -11,7 +11,7 @@
 - name: Create volumes for worker nodes
   openstack.cloud.volume:
     cloud: "{{ cloud_name }}"
-    display_name: "worker-volume-{{ item }}"
+    display_name: "worker_volume_{{ item }}"
     size: "{{ worker_node_volume_size }}"
     state: present
     availability_zone: "{{ availability_zone }}"
