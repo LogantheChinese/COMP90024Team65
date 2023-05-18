@@ -1,22 +1,22 @@
 <template>
   <div>
     <header class="homePageHeader">
-        <h1>Australia GCCs Tweets Analyzing Engine</h1>
+        <h1>COVID Discussion In Different Regions With Different Unemployment Rates</h1>
     </header>
     <section class="container">
       <!-- left -->
       <section class="left">
-        <h2>Numbers of Negative Sentiment Tweets in Australia GCCs (2022)</h2>
-        <MapPage></MapPage>
-      </section>
-      <!-- mid -->
-      <section class="mid">
         <ItemPage>
           <TopLeft></TopLeft>
         </ItemPage>
         <ItemPage>
           <BottomLeft></BottomLeft>
         </ItemPage>
+      </section>
+      <!-- mid -->
+      <section class="mid">
+        <h2>Australia Map Data</h2>
+        <MapPage></MapPage>
       </section>
       <!-- right -->
       <section class="right">
@@ -38,7 +38,7 @@ import TopRight from "@/components/TopRight.vue"
 import BottomLeft from "@/components/BottomLeft.vue"
 import BottomRight from "@/components/BottomRight.vue"
 import {inject} from "vue"
-import MapPage from "@/components/MapPage.vue"
+import MapPage from "@/components/Map.vue"
 export default {
   components:{
     ItemPage,
@@ -74,10 +74,10 @@ export default {
       margin: 0 auto;
       padding: .125rem .125rem 0;
       display: flex;
-      .mid, .right{
+      .left, .right{
         flex: 3;
       }
-      .left{
+      .mid{
         flex: 5;
         height: 10.5rem;
         padding: 0.125rem;

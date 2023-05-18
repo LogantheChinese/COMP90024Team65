@@ -6,17 +6,17 @@
     <section class="container">
       <!-- left -->
       <section class="left">
-        <h2>Numbers of Negative Sentiment Tweets in Australia GCCs (2022)</h2>
-        <MapPage></MapPage>
-      </section>
-      <!-- mid -->
-      <section class="mid">
         <ItemPage>
           <TopLeft></TopLeft>
         </ItemPage>
         <ItemPage>
           <BottomLeft></BottomLeft>
         </ItemPage>
+      </section>
+      <!-- mid -->
+      <section class="mid">
+        <h2>Australia Map Data</h2>
+        <MapPage></MapPage>
       </section>
       <!-- right -->
       <section class="right">
@@ -74,10 +74,10 @@ export default {
       margin: 0 auto;
       padding: .125rem .125rem 0;
       display: flex;
-      .mid, .right{
+      .left, .right{
         flex: 3;
       }
-      .left{
+      .mid{
         flex: 5;
         height: 10.5rem;
         padding: 0.125rem;

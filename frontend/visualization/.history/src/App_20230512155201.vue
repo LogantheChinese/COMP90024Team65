@@ -4,14 +4,9 @@
 <script>
 import {provide} from "vue"
 import * as echarts from "echarts"
-import axios from "axios"
-
-axios.defaults.baseURL="http://localhost:8081"
 export default{
   setup(){
     provide("echarts",echarts)
-    provide("axios",axios)
-
   }
 }
 </script>
