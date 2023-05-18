@@ -80,7 +80,7 @@ func_init_deploy() {
     echo "Provisioning infrastructure on MRC"
     sleep 1
 
-    ansible-playbook create-openstack-instance.yaml
+    ansible-playbook create_openstack_instance.yaml
     read -p "Do you want to continue (yes/no)? " CONTINUE
     if [ "$CONTINUE" != "yes" ]; then
         echo "Exiting deployment..."
@@ -90,7 +90,7 @@ func_init_deploy() {
     echo "Provision finished. Starting to setup basic environment"
     sleep 1
     
-    ansible-playbook node-environment-setup.yaml
+    ansible-playbook node_environment_setup.yaml
     read -p "Do you want to continue (yes/no)? " CONTINUE
     if [ "$CONTINUE" != "yes" ]; then
         echo "Exiting deployment..."
@@ -100,7 +100,7 @@ func_init_deploy() {
     echo "Environment setup finished. Starting to deploy the cluster..."
     sleep 1
 
-    ansible-playbook create-kubernetes-cluster.yaml
+    ansible-playbook create_kubernetes_cluster.yaml
     read -p "Do you want to continue (yes/no)? " CONTINUE
     if [ "$CONTINUE" != "yes" ]; then
         echo "Exiting deployment..."
