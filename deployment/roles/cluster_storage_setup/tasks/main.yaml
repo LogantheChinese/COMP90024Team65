@@ -1,0 +1,18 @@
+---
+- name: Add openebs chart repo
+  kubernetes.core.helm_repository:
+    name: openebs
+    repo_url: "https://openebs.github.io/charts"
+
+- name: Deploy openebs
+  kubernetes.core.helm:
+    name: openebs
+    namespace: openebs
+    create_namespace: true
+    chart_ref: openebs/openebs
+    wait: true
+
+- name: Create storage class
+  kubernetes.core.k8s:
+    state: present
+    definition: "{{ lookup('template', 'storageclass.yaml') | from_yaml }}"

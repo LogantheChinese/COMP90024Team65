@@ -1,0 +1,6 @@
+- name: Install couchdb in cluster and auto setup couchdb cluster
+  hosts: master_nodes
+  gather_facts: no
+  run_once: true
+  roles:
+    - cluster_couchdb_setup

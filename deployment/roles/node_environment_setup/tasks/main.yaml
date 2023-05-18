@@ -3,3 +3,8 @@
   ansible.builtin.apt:
     name: ['python3', 'python3-pip', 'git', 'software-properties-common']
     state: present
+
+- name: install pre-requisites
+  pip:
+    name:
+      - kubernetes 
