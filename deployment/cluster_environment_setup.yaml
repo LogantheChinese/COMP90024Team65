@@ -1,0 +1,43 @@
+---
+- name: Create worker node application label
+  hosts: worker_nodes
+  gather_facts: no
+  tasks:
+    - name: Label worker nodes in Kubernetes
+      kubernetes.core.k8s:
+        state: present
+        definition:
+          apiVersion: v1
+          kind: Node
+          metadata:
+            name: "{{ inventory_hostname }}"
+            labels:
+              ccc.nodes: database
+      delegate_to: "{{ groups['master_nodes'][0] }}"
+
+- name: Create master node application label
+  hosts: master_nodes
+  gather_facts: no
+  tasks:
+    - name: Label master nodes in Kubernetes
+      kubernetes.core.k8s:
+        state: present
+        definition:
+          apiVersion: v1
+          kind: Node
+          metadata:
+            name: "{{ inventory_hostname }}"
+            labels:
+              ccc.nodes: twitter
+
+- name: Create storage provisioner and storage class
+  hosts: master_nodes
+  gather_facts: no
+  roles:
+    - cluster_storage_setup
+
+- name: Create project namespace
+  hosts: master_nodes
+  gather_facts: no
+  roles:
+    - cluster_namespace_setup

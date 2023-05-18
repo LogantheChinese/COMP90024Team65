@@ -1,0 +1,7 @@
+---
+- name: Create project namespace
+  kubernetes.core.k8s:
+    name: comp90024
+    api_version: v1
+    kind: Namespace
+    state: present

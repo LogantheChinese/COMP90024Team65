@@ -7,8 +7,9 @@ func_install_dependencies() {
     sudo pip install -r requirements.txt
     ansible --version
     echo "Starting to install ansible galaxy collections..."
-    ansible-galaxy collection install openstack.cloud:2.1.0 --force
-    ansible-galaxy collection install community.general --force
+    ansible-galaxy collection install openstack.cloud:2.1.0
+    ansible-galaxy collection install community.general
+    ansible-galaxy collection install community.kubernetes
 
     # Download the latest release of kubespray
     echo "Downloading kubespray..."
