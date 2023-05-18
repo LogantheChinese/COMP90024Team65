@@ -13,3 +13,8 @@
     - vars/instance_vars.yaml
   roles:
     - node_volume_mount
+
+- name: Patch kubespray files
+  hosts: localhost
+  roles:
+    - patch_kubespary_hostname
