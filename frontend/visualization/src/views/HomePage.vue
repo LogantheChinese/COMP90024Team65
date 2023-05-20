@@ -8,55 +8,23 @@
       <section class="left">
         <MapPage></MapPage>
       </section>
-      <!-- mid -->
-      <!-- <section class="mid">
-        <ItemPage>
-          <TopLeft></TopLeft>
-        </ItemPage>
-        <ItemPage>
-          <TopLeft></TopLeft>
-        </ItemPage>
-        <ItemPage>
-          <TopLeft></TopLeft>
-        </ItemPage>
-        <ItemPage>
-          <BottomLeft></BottomLeft>
-        </ItemPage>
-      </section> -->
-      <!-- right -->
       <section class="right">
-        <ItemPage>
-        </ItemPage>
-        <!-- <ItemPage>
-          <BottomRight></BottomRight>
-        </ItemPage>
-        <ItemPage>
-          <TopRight></TopRight>
-        </ItemPage>
-        <ItemPage>
-          <BottomRight></BottomRight>
-        </ItemPage> -->
+        <ChartPage></ChartPage>
       </section>
     </section>
   </div>
 </template>
 
 <script>
-import ItemPage from "@/components/ItemPage.vue"
-// import TopLeft from "@/components/TopLeft.vue"
-// import TopRight from "@/components/TopRight.vue"
-// import BottomLeft from "@/components/BottomLeft.vue"
-// import BottomRight from "@/components/BottomRight.vue"
+// import ItemPage from "@/components/ItemPage.vue"
 import {inject} from "vue"
 import MapPage from "@/components/MapPage.vue"
+import ChartPage from "@/components/ChartPage.vue"
 export default {
   components:{
-    ItemPage,
-    // TopLeft,
-    // TopRight,
-    // BottomLeft,
-    // BottomRight,
+    // ItemPage,
     MapPage,
+    ChartPage
   },
   setup(){
       let $echarts =inject("echarts")
@@ -84,15 +52,9 @@ export default {
       margin: 0 auto;
       padding: .125rem .125rem 0;
       display: flex;
-      .mid, .right{
+      .left, .right{
         flex: 5;
-        height: 10.5rem;
-        padding: 0.125rem;
-        margin: .25rem;
-      }
-      .left{
-        flex: 5;
-        height: 10.5rem;
+        height: 13rem;
         padding: 0.125rem;
         margin: .25rem;
       }

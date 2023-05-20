@@ -41,14 +41,16 @@ export default {
             map: "australia",
             itemStyle: {
               borderColor: "#00ffff",
+              borderWidth: 1.5,
               areaColor: "rgba(252,230,201)",
               emphasis: {
-                areaColor: "rgba(61,145,64,0.9)"
+                areaColor: "rgba(252,230,201)"
               }
             },
             label: {
-                  show: true
-                },
+              show: true,
+              fontFamily: "Times New Roman"
+            },
             nameMap: {
               "New South Wales": "NSW",
               Victoria: "VIC",
@@ -62,44 +64,59 @@ export default {
           },
           tooltip: {
             trigger: "item",
-            formatter: "{b}<br/>{c}"
+            formatter: function(param) {
+              var value = param.value;
+              return '<div style="rgba(255,255,255,.3); font-size: 15px;">'
+                +"Numbers of Tweets in "
+                +param.name+": "+value[2] + " times";
+            }
           },
           visualMap: {
-            min: 800,
-            max: 50000,
-            text: ["High", "Low"],
+            min: 0,
+            max: 5000,
+            text: ["High", "Low "],
+            textStyle: {
+              fontFamily: "Times New Roman",
+              fontSize: 15,
+              color: "black"
+            },
+            textGap: 20,
             realtime: false,
             //   calculable: true,
             inRange: {
-              color: ["lightskyblue", "yellow", "orangered"]
+              colorLightness: [0.9, 0.5]
+            },
+            outOfRange: {
+              color: ["rgba(255,255,255,0.4)"]
+            },
+            controller: {
+              inRange: {
+                color: ["#c23531"]
+              },
+              outOfRange: {
+                color: ["#999"]
+              }
             }
           },
           series: [
-            //   {
-            //     type: "map",
-            //     map: "australia",
-
-               //  data: [
-               //    { name: "NSW", value: 800 },
-               //    { name: "VIC", value: 30000 },
-               //    { name: "NT", value: 2500 },
-               //    { name: "WA", value: 6992 },
-               //    { name: "SA", value: 44045 },
-               //    { name: "TAS", value: 37659 },
-               //    { name: "QLD", value: 45180 },
-               //    { name: "", value: 800 }
-               //  ],
-            //   },
             {
               type: "effectScatter",
               coordinateSystem: "geo",
-              tooltip:{
-                    show:true
+              tooltip: {
+                show: true
               },
               itemStyle: {
                 color: "#b02a02"
               },
-              data: [{ name: "Melbourne", value: [144.963, -37.8136, 30000] }]
+              data: [
+                { name: "Melbourne", value: [144.963, -37.8136, 800] },
+                { name: "Sydney", value: [151.2, -33.8667, 2500] },
+                { name: "Brisbane", value: [153.028, -27.4678, 3000] },
+                { name: "Adelaide", value: [138.6, -34.9333, 1500] },
+                { name: "Perth", value: [115.859, -31.9522, 2000] },
+                { name: "Darwin", value: [130.891, -12.4152, 3500] },
+                { name: "Hobart", value: [147.325, -42.8806, 1500] }
+              ]
             }
           ]
         });
