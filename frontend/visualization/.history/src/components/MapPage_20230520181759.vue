@@ -41,14 +41,10 @@ export default {
             map: "australia",
             itemStyle: {
               borderColor: "#00ffff",
-              areaColor: "rgba(252,230,201)",
               emphasis: {
-                areaColor: "rgba(61,145,64,0.9)"
+                areaColor: "rgba(106,90,205,0.9)"
               }
             },
-            label: {
-                  show: true
-                },
             nameMap: {
               "New South Wales": "NSW",
               Victoria: "VIC",
@@ -78,7 +74,9 @@ export default {
             //   {
             //     type: "map",
             //     map: "australia",
-
+            //     label: {
+            //       show: true
+            //     },
                //  data: [
                //    { name: "NSW", value: 800 },
                //    { name: "VIC", value: 30000 },

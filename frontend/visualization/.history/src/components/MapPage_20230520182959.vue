@@ -43,7 +43,7 @@ export default {
               borderColor: "#00ffff",
               areaColor: "rgba(252,230,201)",
               emphasis: {
-                areaColor: "rgba(61,145,64,0.9)"
+                areaColor: "rgba(51,161,201,0.9)"
               }
             },
             label: {

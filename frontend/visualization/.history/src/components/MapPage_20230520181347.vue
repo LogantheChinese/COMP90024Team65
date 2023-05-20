@@ -41,14 +41,22 @@ export default {
             map: "australia",
             itemStyle: {
               borderColor: "#00ffff",
-              areaColor: "rgba(252,230,201)",
+              shadowColor: "rgba(230,130,70,0.5)",
+              shadowBlur: 30,
               emphasis: {
-                areaColor: "rgba(61,145,64,0.9)"
+                areaColor: "rgba(230,130,70,0.5)"
               }
             },
-            label: {
-                  show: true
-                },
+            data: [
+                  { name: "NSW", value: 800 },
+                  { name: "VIC", value: 30000 },
+                  { name: "NT", value: 2500 },
+                  { name: "WA", value: 6992 },
+                  { name: "SA", value: 44045 },
+                  { name: "TAS", value: 37659 },
+                  { name: "QLD", value: 45180 },
+                  { name: "", value: 800 }
+                ],
             nameMap: {
               "New South Wales": "NSW",
               Victoria: "VIC",
@@ -78,7 +86,9 @@ export default {
             //   {
             //     type: "map",
             //     map: "australia",
-
+            //     label: {
+            //       show: true
+            //     },
                //  data: [
                //    { name: "NSW", value: 800 },
                //    { name: "VIC", value: 30000 },

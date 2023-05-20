@@ -41,9 +41,9 @@ export default {
             map: "australia",
             itemStyle: {
               borderColor: "#00ffff",
-              areaColor: "rgba(252,230,201)",
+              areaColor: "rgba(255,235,205)",
               emphasis: {
-                areaColor: "rgba(61,145,64,0.9)"
+                areaColor: "rgba(106,90,205,0.9)"
               }
             },
             label: {
