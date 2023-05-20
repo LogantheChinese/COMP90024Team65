@@ -1,7 +1,7 @@
 <template>
      <div>
         <header class="itemHeader">
-        <h3>correlation of xx and xx</h3>
+        <h2>correlation of xx and xx</h2>
    
         </header>
         <div class="chart"></div>
@@ -15,8 +15,8 @@
 </script>
    
 <style>
-   h3{
-        font-size: .1rem;
+   h2{
+        font-size: .2rem;
         text-align: center;
         font-family: 'Times New Roman', Times, serif;
    }

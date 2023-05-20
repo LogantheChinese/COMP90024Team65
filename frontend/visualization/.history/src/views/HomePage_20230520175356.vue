@@ -1,7 +1,7 @@
 <template>
   <div>
     <header class="homePageHeader">
-        <h1>Australia GCCs Negative Sentiment Tweets Analyzing Engine (Feb/2022 - Aug/2022)</h1>
+        <h1>Australia GCCs Negative Sentiment Tweets Analyzing Engine(2022)</h1>
     </header>
     <section class="container">
       <!-- left -->

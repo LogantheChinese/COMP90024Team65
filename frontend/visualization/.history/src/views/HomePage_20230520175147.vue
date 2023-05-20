@@ -1,7 +1,7 @@
 <template>
   <div>
     <header class="homePageHeader">
-        <h1>Australia GCCs Negative Sentiment Tweets Analyzing Engine (Feb/2022 - Aug/2022)</h1>
+        <h1>Australia GCCs Tweets Analyzing Engine</h1>
     </header>
     <section class="container">
       <!-- left -->
@@ -69,10 +69,10 @@ export default {
 
 <style lang="less">
     .homePageHeader{
-        height: 1rem;
+        height: .5rem;
         width: 100%;
         h1{
-            font-size: 0.6rem;
+            font-size: .5rem;
             text-align: center;
             line-height: 1rem;
             font-family: 'Times New Roman', Times, serif;

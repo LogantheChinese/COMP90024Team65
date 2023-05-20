@@ -20,7 +20,7 @@ export default {
         mycharts.setOption({
           title: {
             text:
-              "Numbers of Negative Sentiment Tweets in Australia GCCs (Feb/2022 - Aug/2022)",
+              "Numbers of Negative Sentiment Tweets in Australia GCCs (2022)",
             subtext: "Data processed by Team65",
             sublink: "https://github.com/LogantheChinese/COMP90024Team65",
             textStyle: {
@@ -43,9 +43,9 @@ export default {
               borderColor: "#00ffff",
               shadowColor: "rgba(230,130,70,0.5)",
               shadowBlur: 30,
-          //     emphasis: {
-          //       focus: "self"
-          //     }
+              emphasis: {
+                focus: "self"
+              }
             },
             nameMap: {
               "New South Wales": "NSW",
@@ -93,9 +93,6 @@ export default {
             {
               type: "effectScatter",
               coordinateSystem: "geo",
-              tooltip:{
-                    show:true
-              },
               itemStyle: {
                 color: "#b02a02"
               },

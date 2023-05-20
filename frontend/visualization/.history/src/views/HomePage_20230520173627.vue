@@ -1,11 +1,12 @@
 <template>
   <div>
     <header class="homePageHeader">
-        <h1>Australia GCCs Negative Sentiment Tweets Analyzing Engine (Feb/2022 - Aug/2022)</h1>
+        <h1>Australia GCCs Tweets Analyzing Engine</h1>
     </header>
     <section class="container">
       <!-- left -->
       <section class="left">
+        <h2>Numbers of Negative Sentiment Tweets in Australia GCCs (2022)</h2>
         <MapPage></MapPage>
       </section>
       <!-- mid -->
@@ -26,6 +27,7 @@
       <!-- right -->
       <section class="right">
         <ItemPage>
+          <MapBack></MapBack>
         </ItemPage>
         <!-- <ItemPage>
           <BottomRight></BottomRight>
@@ -49,6 +51,7 @@ import ItemPage from "@/components/ItemPage.vue"
 // import BottomRight from "@/components/BottomRight.vue"
 import {inject} from "vue"
 import MapPage from "@/components/MapPage.vue"
+import MapBack from "@/components/MapBack.vue"
 export default {
   components:{
     ItemPage,
@@ -57,6 +60,7 @@ export default {
     // BottomLeft,
     // BottomRight,
     MapPage,
+    MapBack
   },
   setup(){
       let $echarts =inject("echarts")
@@ -72,7 +76,7 @@ export default {
         height: 1rem;
         width: 100%;
         h1{
-            font-size: 0.6rem;
+            font-size: .5rem;
             text-align: center;
             line-height: 1rem;
             font-family: 'Times New Roman', Times, serif;

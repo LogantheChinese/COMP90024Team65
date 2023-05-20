@@ -20,7 +20,7 @@ export default {
         mycharts.setOption({
           title: {
             text:
-              "Numbers of Negative Sentiment Tweets in Australia GCCs (Feb/2022 - Aug/2022)",
+              "Numbers of Negative Sentiment Tweets in Australia GCCs (2022)",
             subtext: "Data processed by Team65",
             sublink: "https://github.com/LogantheChinese/COMP90024Team65",
             textStyle: {
