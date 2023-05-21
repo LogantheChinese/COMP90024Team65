@@ -1,0 +1,69 @@
+<template>
+  <div>
+    <header class="homePageHeader">
+        <h1>Australia GCCs Negative Sentiment Tweets Analyzing Engine (Feb/2022 - Aug/2022)</h1>
+    </header>
+    <section class="container">
+      <!-- left -->
+      <section class="left">
+        <MapPage></MapPage>
+      </section>
+      <section class="right">
+        <h2>Unemployment Rate and Negative Sentiment Tweets Ratio Statistics</h2>
+        <ChartPage></ChartPage>
+      </section>
+    </section>
+  </div>
+</template>
+
+<script>
+// import ItemPage from "@/components/ItemPage.vue"
+import {inject} from "vue"
+import MapPage from "@/components/MapPage.vue"
+import ChartPage from "@/components/ChartPage.vue"
+export default {
+  components:{
+    // ItemPage,
+    MapPage,
+    ChartPage
+  },
+  setup(){
+      let $echarts =inject("echarts")
+      let $axios = inject("axios")
+      console.log($echarts);
+      console.log($axios);
+    }
+}
+</script>
+
+<style lang="less">
+    .homePageHeader{
+        height: 1rem;
+        width: 100%;
+        h1{
+            font-size: 0.6rem;
+            text-align: center;
+            line-height: 1rem;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    }
+    .h2{
+      font-size: 0.3rem;
+            text-align: center;
+            line-height: 1rem;
+            font-family: 'Times New Roman', Times, serif;
+    }
+    .container{
+      min-width: 1200px;
+      max-width: 3024px;
+      margin: 0 auto;
+      padding: .125rem .125rem 0;
+      display: flex;
+      .left, .right{
+        flex: 5;
+        height: 13rem;
+        padding: 0.125rem;
+        margin: .25rem;
+      }
+    }
+</style>
