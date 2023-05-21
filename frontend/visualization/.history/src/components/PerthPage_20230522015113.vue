@@ -3,23 +3,23 @@
 </template>
    
 <script>
-import { onMounted, inject } from "vue";
+import { onMounted, inject,reactive,watch } from "vue";
 export default {
   props: {
     tdata: Object,
     udata: Object
   },
   setup(props) {
-    // let tweetdata = reactive({});
-    // let unemploydata = reactive({});
-    // watch(
-    //   ()=>props.tdata,(newVal) =>{
-    //     tweetdata=newVal
-    //   },
-    //   ()=>props.udata,(newVal)=>{
-    //     unemploydata=newVal
-    //   }
-    // )
+    let tweetdata = reactive({});
+    let unemploydata = reactive({});
+    watch(
+      ()=>props.tdata,(newVal) =>{
+        tweetdata=newVal
+      },
+      ()=>props.udata,(newVal)=>{
+        unemploydata=newVal
+      }
+    )
     let $echarts = inject("echarts");
     onMounted(() => {
       let myChart = $echarts.init(document.getElementById("perthcharts"));
@@ -73,7 +73,7 @@ export default {
             name: "Unemployment",
             type: "line",
             smooth: true,
-            data: props.udata["Perth"],
+            data: unemploydata["Perth"],
             lineStyle: {
               width: 3
             }
@@ -82,7 +82,7 @@ export default {
             name: "Negative",
             type: "line",
             smooth: true,
-            data: props.tdata["Perth"],
+            data: tweetdata["Perth"],
             lineStyle: {
               width: 3
             }
@@ -91,7 +91,7 @@ export default {
       });
     });
     return {
-      // tweetdata,unemploydata
+      tweetdata,unemploydata
     };
   }
 };

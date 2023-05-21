@@ -55,7 +55,7 @@ import HobartPage from "@/components/HobartPage.vue";
 import PerthPage from "@/components/PerthPage.vue";
 import SydneyPage from "@/components/SydneyPage.vue";
 import PiePage from "@/components/PiePage.vue";
-import { onMounted} from "vue";
+import { onMounted,reactive,inject} from "vue";
 export default {
   components: {
     ItemPage,
@@ -69,9 +69,9 @@ export default {
     PiePage
   },
   setup() {
-    // let $axios = inject("axios");
-    // let NegMData = reactive({});
-    // let AllMData = reactive({});
+    let $axios = inject("axios");
+    let NegMData = reactive({});
+    let AllMData = reactive({});
     // let NegData = reactive({});
     // let UData = reactive({});
     // let AllData = reactive({});
@@ -149,14 +149,14 @@ export default {
       Hobart: [0.060810810810810814, 0.055020632737276476, 0.04809894640403115, 0.05469012663902275, 0.053945818610129564, 0.06316812439261418, 0.06666666666666667],
       Perth: [0.057306770899003906, 0.06321728783633362, 0.064030131826742, 0.05935200617911297, 0.05538097526710784, 0.05174742529123755, 0.054692852249372]
     };
-    let mdata = [1768,165837]
+    let mdata = [0,0]
     const router = useRouter();
     async function getState() {
       // NegData = await $axios.get("/getAllTweetNegativeData");
       // UData = await $axios.get("/getAllSudoData");
       // AllData = await $axios.get("/getAllTweetData");
-      // NegMData = await $axios.get("/getAllMastodonNegativeData")
-      // AllMData = await $axios.get("/getAllMastodonData")
+      NegMData = await $axios.get("/getAllMastodonNegativeData")
+      AllMData = await $axios.get("/getAllMastodonData")
     }
     const getUnemployment = listData => {
       let cacheData = listData;
@@ -247,8 +247,7 @@ export default {
         // console.log(AllData.data.data[0].value);
         // getTweets(NegData.data.data);
         // getNegtive(AllData.data.data)
-        // mdata[0]=NegMData.data.data[0].value
-        //mdata[1]=AllMData.data.data[0].value
+        mdata[0]=
       });
     });
     const goTo1 = () => {

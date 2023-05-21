@@ -3,7 +3,7 @@
 </template>
    
 <script>
-import { onMounted, inject } from "vue";
+import { onMounted, inject,reactive,watch } from "vue";
 export default {
   props: {
     tdata: Object,
@@ -91,7 +91,7 @@ export default {
       });
     });
     return {
-      // tweetdata,unemploydata
+      tweetdata,unemploydata
     };
   }
 };

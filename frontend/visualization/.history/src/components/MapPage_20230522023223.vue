@@ -72,8 +72,8 @@ export default {
             }
           },
           visualMap: {
-            min: 1000,
-            max: 40000,
+            min: 0,
+            max: 5000,
             text: ["High", "Low "],
             textStyle: {
               fontFamily: "Times New Roman",

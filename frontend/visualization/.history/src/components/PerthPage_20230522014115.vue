@@ -3,6 +3,7 @@
 </template>
    
 <script>
+import { watch } from "fs";
 import { onMounted, inject } from "vue";
 export default {
   props: {
@@ -10,16 +11,10 @@ export default {
     udata: Object
   },
   setup(props) {
-    // let tweetdata = reactive({});
-    // let unemploydata = reactive({});
-    // watch(
-    //   ()=>props.tdata,(newVal) =>{
-    //     tweetdata=newVal
-    //   },
-    //   ()=>props.udata,(newVal)=>{
-    //     unemploydata=newVal
-    //   }
-    // )
+    watch(
+      ()=>props.tdata,
+      ()=>props.udata
+    )
     let $echarts = inject("echarts");
     onMounted(() => {
       let myChart = $echarts.init(document.getElementById("perthcharts"));
@@ -91,7 +86,6 @@ export default {
       });
     });
     return {
-      // tweetdata,unemploydata
     };
   }
 };

@@ -55,7 +55,7 @@ import HobartPage from "@/components/HobartPage.vue";
 import PerthPage from "@/components/PerthPage.vue";
 import SydneyPage from "@/components/SydneyPage.vue";
 import PiePage from "@/components/PiePage.vue";
-import { onMounted} from "vue";
+import { onMounted,reactive,inject} from "vue";
 export default {
   components: {
     ItemPage,

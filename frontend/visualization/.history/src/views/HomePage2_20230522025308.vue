@@ -55,7 +55,7 @@ import HobartPage from "@/components/HobartPage.vue";
 import PerthPage from "@/components/PerthPage.vue";
 import SydneyPage from "@/components/SydneyPage.vue";
 import PiePage from "@/components/PiePage.vue";
-import { onMounted} from "vue";
+import { onMounted,reactive,inject} from "vue";
 export default {
   components: {
     ItemPage,
@@ -69,9 +69,9 @@ export default {
     PiePage
   },
   setup() {
-    // let $axios = inject("axios");
-    // let NegMData = reactive({});
-    // let AllMData = reactive({});
+    let $axios = inject("axios");
+    let NegMData = reactive({});
+    let AllMData = reactive({});
     // let NegData = reactive({});
     // let UData = reactive({});
     // let AllData = reactive({});
@@ -155,8 +155,8 @@ export default {
       // NegData = await $axios.get("/getAllTweetNegativeData");
       // UData = await $axios.get("/getAllSudoData");
       // AllData = await $axios.get("/getAllTweetData");
-      // NegMData = await $axios.get("/getAllMastodonNegativeData")
-      // AllMData = await $axios.get("/getAllMastodonData")
+      NegMData = await $axios.get("/getAllMastodonNegativeData")
+      AllMData = await $axios.get("/getAllMastodonData")
     }
     const getUnemployment = listData => {
       let cacheData = listData;
@@ -247,8 +247,10 @@ export default {
         // console.log(AllData.data.data[0].value);
         // getTweets(NegData.data.data);
         // getNegtive(AllData.data.data)
-        // mdata[0]=NegMData.data.data[0].value
-        //mdata[1]=AllMData.data.data[0].value
+        // mdata[0]=
+        console.log('all',AllMData.data.data[0].value)
+        console.log('neg',NegMData.data.data[0].value)
+
       });
     });
     const goTo1 = () => {

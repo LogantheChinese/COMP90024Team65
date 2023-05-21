@@ -91,7 +91,7 @@ export default {
       });
     });
     return {
-      // tweetdata,unemploydata
+      tweetdata,unemploydata
     };
   }
 };

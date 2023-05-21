@@ -16,7 +16,6 @@
 import MapPage from "@/components/MapPage.vue";
 import { useRouter } from 'vue-router';
 export default {
-
   components: {
     MapPage,
   },
