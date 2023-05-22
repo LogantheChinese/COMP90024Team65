@@ -27,4 +27,4 @@ jobs:
         with:
           context: ./Mastodon_Harvester
           push: true
-          tags: comp90024team65/mastodon-harvester:${{ github.ref }}
+          tags: comp90024team65/mastodon-harvester:latest
