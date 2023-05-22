@@ -1,0 +1,128 @@
+{
+  "properties": [
+    {
+      "name": "mailservice.name",
+      "type": "java.lang.String",
+      "description": "Description for mailservice.name."
+    },
+    {
+      "name": "couchdb.host",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.host."
+    },
+    {
+      "name": "couchdb.port",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.port."
+    },
+    {
+      "name": "couchdb.sername",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.sername."
+    },
+    {
+      "name": "couchdb.sudoDB",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.sudoDB."
+    },
+    {
+      "name": "couchdb.username",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.username."
+    },
+    {
+      "name": "couchdb.password",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.password."
+    },
+    {
+      "name": "couchdb.tweetDB",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.tweetDB."
+    },
+    {
+      "name": "couchbase.bucket.name",
+      "type": "java.lang.String",
+      "description": "Description for couchbase.bucket.name."
+    },
+    {
+      "name": "couchbase.bucket.password",
+      "type": "java.lang.String",
+      "description": "Description for couchbase.bucket.password."
+    },
+    {
+      "name": "couchbase.connection-string",
+      "type": "java.lang.String",
+      "description": "Description for couchbase.connection-string."
+    },
+    {
+      "name": "couchbase.username",
+      "type": "java.lang.String",
+      "description": "Description for couchbase.username."
+    },
+    {
+      "name": "couchbase.password",
+      "type": "java.lang.String",
+      "description": "Description for couchbase.password."
+    },
+    {
+      "name": "couchdb.mastodonDB",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.mastodonDB."
+    },
+    {
+      "name": "couchdb.mastodon.host",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.mastodon.host."
+    },
+    {
+      "name": "couchdb.mastodon.port",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.mastodon.port."
+    },
+    {
+      "name": "couchdb.mastodon.username",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.mastodon.username."
+    },
+    {
+      "name": "couchdb.mastodon.password",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.mastodon.password."
+    },
+    {
+      "name": "couchdb.mastodon.mastodonDB",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.mastodon.mastodonDB."
+    },
+    {
+      "name": "couchdb.tweet.host",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.tweet.host."
+    },
+    {
+      "name": "couchdb.tweet.port",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.tweet.port."
+    },
+    {
+      "name": "couchdb.tweet.sudoDB",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.tweet.sudoDB."
+    },
+    {
+      "name": "couchdb.tweet.username",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.tweet.username."
+    },
+    {
+      "name": "couchdb.tweet.password",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.tweet.password."
+    },
+    {
+      "name": "couchdb.tweet.tweetDB",
+      "type": "java.lang.String",
+      "description": "Description for couchdb.tweet.tweetDB."
+    }
+  ] }

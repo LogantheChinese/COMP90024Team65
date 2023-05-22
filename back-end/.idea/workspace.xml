@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6d457be7-e907-4d8b-ad21-8d54403c4659" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/entity/CValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/entity/SudoObj.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/asialink/affection/service/impl/SudoDataService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api_JSON" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend Setup.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image-20220528131909736.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image-20221027205308142.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image-20221027205342586.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/DigitalDisplaysOfAffectionApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asialink/affection/CCCApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/aspect/LogAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asialink/affection/aspect/LogAspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/config/FastJsonRedisSerializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/config/HerokuConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/config/MybatisPlusConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/config/RedisConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asialink/affection/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asialink/affection/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/controller/EntryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/controller/EventController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/controller/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/controller/RelationshipController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/controller/TestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/dto/EngagementDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/dto/LoginDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/dto/RelationshipDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/dto/UpdateEngagementDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/dto/UpdateRelationshipDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/entity/ArtType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/entity/Entry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/entity/Location.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/entity/LoginUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/entity/Relationship.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/vo/AProfileVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/vo/ArtistProfileVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/vo/ArtistWorkVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/vo/CardVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/vo/EngagementVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/vo/EventChartCountryVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/vo/EventChartVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/vo/EventVO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/vo/LoginVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/vo/PageVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/vo/StaticInfoCountryVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/vo/StaticInfoVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/vo/UserInfoVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/vo/WorkInfoVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/vo/WorkVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/vo/artistVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/filter/JwtAuthenticationTokenFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/handler/mybatisPlusHandler/MyMetaObjectHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/handler/security/AccessDeniedHandlerImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/handler/security/AuthenticationEntryPointImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/mapper/ArtTypeMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/mapper/EntryMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/mapper/LocationMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/mapper/RelationshipMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/mapper/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/service/ArtTypeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/service/EmailService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/service/EntryService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/service/LocationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/service/RelationshipService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/service/UploadService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/service/impl/ArtTypeServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/service/impl/EntryServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/service/impl/LocationServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/service/impl/OssUploadService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/service/impl/RelationshipServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/service/impl/UserDetailServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/service/impl/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/utils/CacheClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/utils/EmailUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/utils/JwtUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/utils/RedisCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/utils/SecurityUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asialink/affection/utils/WebUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asialink/affection/utils/WebUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/additional-spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/additional-spring-configuration-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-docker.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-docker.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-heroku.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-localdocker.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-localpostgresql.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/asialink/affection/CardsUnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/asialink/affection/DigitalDisplaysOfAffectionApplicationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/asialink/affection/DigitalDisplaysOfAffectionApplicationTesting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/asialink/affection/DigitalDisplaysOfAffectionApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/asialink/affection/DigitalDisplaysOfAffectionApplicationUnitTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/asialink/affection/SendEmailTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CCC" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CCC" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CCC" type="f1a62948:ProjectNode" />
+                <item name="运行配置" type="7b0102dc:RunConfigurationsNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
+  <component name="ProjectId" id="2CyOkGgqonGGiUWvBuSm0JVwWsw" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="模块" />
+    <property name="project.structure.proportion" value="0.13876455" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.asialink.affection.service.impl" />
+      <recent name="com.asialink.affection.domain.entity" />
+      <recent name="com.asialink.affection.domain.vo" />
+      <recent name="com.asialink.affection.domain.dto" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.asialink.affection.service.impl" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.asialink.affection.service.impl" />
+      <recent name="com.asialink.affection.mapper" />
+      <recent name="com.asialink.affection.controller" />
+      <recent name="com.asialink.affection.domain.dto" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.CCCApplication (1)">
+    <configuration name="back-end [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--stacktrace" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="back-end" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="CCC-0.0.1-SNAPSHOT-plain.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/build/libs/CCC-0.0.1-SNAPSHOT-plain.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="CCCApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="CCC.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.asialink.affection.CCCApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DigitalDisplaysOfAffectionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="affection.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.asialink.affection.DigitalDisplaysOfAffectionApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Dockerfile build" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="buildCliOptions" value="--target build" />
+          <option name="buildKitEnabled" value="true" />
+          <option name="buildOnly" value="true" />
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="ccc_be" />
+          <option name="buildOnly" value="true" />
+          <option name="containerName" value="" />
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Gradle.back-end" />
+        <item itemvalue="Docker.Dockerfile build" />
+        <item itemvalue="Gradle.back-end [build]" />
+        <item itemvalue="JAR 应用程序.CCC-0.0.1-SNAPSHOT-plain.jar" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="SpringBootOptions">
+    <option name="showAdditionalConfigNotification" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="6d457be7-e907-4d8b-ad21-8d54403c4659" name="更改" comment="" />
+      <created>1659771499290</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1659771499290</updated>
+      <workItem from="1659771504624" duration="15135000" />
+      <workItem from="1660548805498" duration="52000" />
+      <workItem from="1660571824982" duration="17655000" />
+      <workItem from="1661517001007" duration="5932000" />
+      <workItem from="1661593348422" duration="3865000" />
+      <workItem from="1662270196380" duration="2588000" />
+      <workItem from="1662388258853" duration="148000" />
+      <workItem from="1662388498962" duration="10112000" />
+      <workItem from="1662870843932" duration="7518000" />
+      <workItem from="1662990318276" duration="1941000" />
+      <workItem from="1663069570595" duration="9000" />
+      <workItem from="1663478250220" duration="41000" />
+      <workItem from="1663478368826" duration="988000" />
+      <workItem from="1663479384902" duration="27000" />
+      <workItem from="1663479498217" duration="48000" />
+      <workItem from="1663479604397" duration="162000" />
+      <workItem from="1663479864149" duration="15929000" />
+      <workItem from="1663574577293" duration="815000" />
+      <workItem from="1663906143368" duration="8416000" />
+      <workItem from="1664802030848" duration="8617000" />
+      <workItem from="1664812807080" duration="24049000" />
+      <workItem from="1664945663693" duration="24782000" />
+      <workItem from="1665372702500" duration="1978000" />
+      <workItem from="1665644956325" duration="5662000" />
+      <workItem from="1665822785948" duration="2219000" />
+      <workItem from="1665836227437" duration="6041000" />
+      <workItem from="1666012340893" duration="5086000" />
+      <workItem from="1666629125525" duration="135000" />
+      <workItem from="1666629336613" duration="2476000" />
+      <workItem from="1666870091533" duration="1488000" />
+      <workItem from="1666874316931" duration="165000" />
+      <workItem from="1666875254029" duration="528000" />
+      <workItem from="1683374545311" duration="4624000" />
+      <workItem from="1684304772033" duration="36772000" />
+      <workItem from="1684488462798" duration="14589000" />
+      <workItem from="1684595359829" duration="1474000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.springframework.web.client.HttpClientErrorException$Unauthorized" package="org.springframework.web.client" />
+          <option name="timeStamp" value="34" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/asialink/affection/service/impl/SudoDataServiceImpl.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
