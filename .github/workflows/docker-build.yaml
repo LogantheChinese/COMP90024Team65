@@ -2,8 +2,8 @@ name: docker-build
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - 'main'
 
 jobs:
   docker:
@@ -25,6 +25,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: ./Mastodon_Harvester
+          context: "{{defaultContext}}:Mastodon_Harvester"
           push: true
           tags: comp90024team65/mastodon-harvester:latest
