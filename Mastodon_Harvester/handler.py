@@ -77,7 +77,7 @@ class CouchDBHandler:
     ##############################
     def __connect_to_db_(self):
 
-        self.server = couchdb.Server(f"http://{config.DBCONFIG['address']}/")
+        self.server = couchdb.Server(f"http://{config.DBCONFIG['address']}:{config.DBCONFIG['port']}/")
         username = os.environ.get('DB_USERNAME')
         password = os.environ.get('DB_PASSWORD')
         # 'admin', 'fM2ViRNmR3X6CLrXhe4X'
