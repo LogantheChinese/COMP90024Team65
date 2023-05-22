@@ -9,9 +9,15 @@ import { onMounted, inject } from "vue";
 export default {
   setup() {
     let $echarts = inject("echarts");
+    // let mapData = reactive;
+    // async function getState() {
+    //   mapData = await axios.get("./public/Australia.json");
+    // }
+    // console.log(mapData.data)
     onMounted(() => {
+      // getState().then(() => {
            console.log("map", mapData);
-        $echarts.registerMap("australia", mapData);
+        $echarts.registerMap("australia", mapData.data);
         let mycharts = $echarts.init(document.getElementById("AuMap"));
         mycharts.setOption({
           title: {

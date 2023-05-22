@@ -137,7 +137,7 @@ export default {
         0.0338,
         0.0334,
         0.0318,
-        0.0304
+        0.304
       ]
     };
     let tdata = {
@@ -152,11 +152,11 @@ export default {
     let mdata = [1768,165837]
     const router = useRouter();
     async function getState() {
-      NegData = await $axios.get("http://localhost:8082/getAllTweetNegativeData");
-      UData = await $axios.get("http://localhost:8082/getAllSudoData");
-      AllData = await $axios.get("http://localhost:8082/getAllTweetData");
-      NegMData = await $axios.get("http://localhost:8082/getAllMastodonNegativeData")
-      AllMData = await $axios.get("http://localhost:8082/getAllMastodonData")
+      NegData = await $axios.get("/getAllTweetNegativeData");
+      UData = await $axios.get("/getAllSudoData");
+      AllData = await $axios.get("/getAllTweetData");
+      NegMData = await $axios.get("/getAllMastodonNegativeData")
+      AllMData = await $axios.get("/getAllMastodonData")
     }
     const getUnemployment = listData => {
       let cacheData = listData;

@@ -10,6 +10,7 @@ export default {
     udata: Object
   },
   watch:{
+    watch: {
     tdata: {
       handler(newVal) {
         this.props.tdata=newVal
@@ -26,6 +27,7 @@ export default {
       },
       deep: true // This ensures that the watcher will detect changes in the nested properties of udata
     }
+  }
   },
   setup(props) {
     // let tweetdata = reactive({});

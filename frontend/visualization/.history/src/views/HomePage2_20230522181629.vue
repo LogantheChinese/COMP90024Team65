@@ -152,11 +152,11 @@ export default {
     let mdata = [1768,165837]
     const router = useRouter();
     async function getState() {
-      NegData = await $axios.get("http://localhost:8082/getAllTweetNegativeData");
-      UData = await $axios.get("http://localhost:8082/getAllSudoData");
-      AllData = await $axios.get("http://localhost:8082/getAllTweetData");
-      NegMData = await $axios.get("http://localhost:8082/getAllMastodonNegativeData")
-      AllMData = await $axios.get("http://localhost:8082/getAllMastodonData")
+      NegData = await $axios.get("/getAllTweetNegativeData");
+      UData = await $axios.get("/getAllSudoData");
+      AllData = await $axios.get("/getAllTweetData");
+      NegMData = await $axios.get("/getAllMastodonNegativeData")
+      AllMData = await $axios.get("/getAllMastodonData")
     }
     const getUnemployment = listData => {
       let cacheData = listData;
@@ -243,16 +243,11 @@ export default {
     };
     onMounted(() => {
       getState().then(() => {
-        // getUnemployment(UData.data.data)
-        // getTweets(NegData.data.data)
-        // getNegtive(AllData.data.data)
-        console.log(NegMData.data)
-        console.log(UData.data.data)
-        console.log(NegData.data.data)
-        console.log(AllData.data.data)
-        console.log(AllMData.data)
-        // mdata[0]=NegMData.data.data[0].value
-        // mdata[1]=AllMData.data.data[0].value
+        getUnemployment(UData.data.data)
+        getTweets(NegData.data.data);
+        getNegtive(AllData.data.data)
+        mdata[0]=NegMData.data.data[0].value
+        mdata[1]=AllMData.data.data[0].value
       });
     });
     const goTo1 = () => {

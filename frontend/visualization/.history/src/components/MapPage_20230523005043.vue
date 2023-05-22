@@ -3,15 +3,19 @@
 </template>
 
 <script>
-// import axios from "axios";
-import mapData from "./public/Australia.json"
-import { onMounted, inject } from "vue";
+import axios from "axios";
+import { onMounted, reactive, inject } from "vue";
 export default {
   setup() {
     let $echarts = inject("echarts");
+    let mapData = reactive;
+    async function getState() {
+      mapData = await axios.get("./public/Australia.json");
+    }
     onMounted(() => {
-           console.log("map", mapData);
-        $echarts.registerMap("australia", mapData);
+      getState().then(() => {
+        //    console.log("map", mapData);
+        $echarts.registerMap("australia", mapData.data);
         let mycharts = $echarts.init(document.getElementById("AuMap"));
         mycharts.setOption({
           title: {
@@ -116,10 +120,10 @@ export default {
             }
           ]
         });
-      // });
+      });
     });
     return {
-      // getState,
+      getState,
       mapData
     };
   }
