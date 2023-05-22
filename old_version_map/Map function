@@ -1,0 +1,37 @@
+function (doc) {
+    // get time
+    var createdAt = new Date(doc.data.created_at);
+
+    // time filter
+    if (createdAt.getFullYear() < 2021) {
+        return;
+    }
+
+    var content = doc.data.text;
+    // define keywords
+    var keywords = ['Kindness'];  
+    var foundKeywords = [];
+
+
+    keywords.forEach(function(keyword) {
+        if (content.indexOf(keyword) !== -1) {
+            foundKeywords.push(keyword);
+        }
+    });
+
+
+    var uniqueKeywords = Array.from(new Set(foundKeywords));
+
+
+    var geoClass = 'Unknown';
+    if (doc.includes && doc.includes.places && doc.includes.places.length > 0) {
+        var bbox = doc.includes.places[0].geo.bbox;
+        geoClass = bbox.join(',');
+    }
+
+
+    uniqueKeywords.forEach(function(keyword) {
+        emit([geoClass, keyword], 1);
+    });
+}
+

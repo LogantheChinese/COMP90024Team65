@@ -1,0 +1,6 @@
+function (doc) {
+    if(doc.negative == 1){
+      dateResult = doc.date.year + "|" + doc.date.month + "|Negative"
+      emit(dateResult, 1);
+    }
+}
