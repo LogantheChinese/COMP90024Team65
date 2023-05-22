@@ -13,7 +13,6 @@ if not exists(config.ACCOUNT["file"]):
             to_file = 'pytooter_clientcred.secret')
 else:
     print("User credentials file already exists.")
-
 def login():
     mastodon = Mastodon(client_id = 'pytooter_clientcred.secret',)
     mastodon.log_in(config.ACCOUNT["mail"], config.ACCOUNT["passwd"], to_file = 'pytooter_usercred.secret')
@@ -22,7 +21,8 @@ def login():
 while True:
     try:
         API = login()
-        handler = CouchDBHandler()  
+        handler = CouchDBHandler()
+
         listener = CallbackStreamListener(update_handler=handler.handler_post,
                                           local_update_handler=handler.handler_post,
                                           notification_handler=None,

@@ -3,6 +3,7 @@ import configfile as config
 from datetime import datetime
 from couchdb import Server
 import re
+import os
 from textblob import TextBlob
 
 class CouchDBHandler:
@@ -77,7 +78,10 @@ class CouchDBHandler:
     def __connect_to_db_(self):
 
         self.server = couchdb.Server(f"https://{config.DBCONFIG['address']}/")
-        self.server.resource.credentials = ('admin', 'fM2ViRNmR3X6CLrXhe4X')
+        username = os.environ.get('COUCHDB_USERNAME')
+        password = os.environ.get('COUCHDB_PASSWORD')
+        # 'admin', 'fM2ViRNmR3X6CLrXhe4X'
+        self.server.resource.credentials = (username, password)
         self.db = self.server[config.DBCONFIG["db"]]
 
 
