@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mastodon-harvester-{{ item.name }}
+  namespace: comp90024
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mastodon-harvester-{{ item.name }}
+  template:
+    metadata:
+      labels:
+        app: mastodon-harvester-{{ item.name }}
+    spec:
+      containers:
+      - name: mastodon-harvester
+        image: comp90024team65/mastodon-harvester:latest
+        env:
+        - name: DBCONFIG_ADDRESS
+          value: "{{ DBCONFIG_ADDRESS }}"
+        - name: DBCONFIG_PORT
+          value: "{{ DBCONFIG_PORT }}"
+        - name: DBCONFIG_DB
+          value: "{{ DBCONFIG_DB }}"
+        - name: DB_USERNAME
+          value: "{{ DB_USERNAME }}"
+        - name: DB_PASSWORD
+          value: "{{ DB_PASSWORD }}"
+        - name: ACCOUNT_MAIL
+          value: "{{ ACCOUNT_MAIL }}"
+        - name: ACCOUNT_PASSWORD
+          value: "{{ ACCOUNT_PASSWORD }}"
+        - name: ACCOUNT_FILE
+          value: "{{ ACCOUNT_FILE }}"
+        - name: SERVER_URL
+          value: "{{ item.url }}"
+        

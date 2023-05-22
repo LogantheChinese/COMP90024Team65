@@ -1,0 +1,32 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: twitter-handler-job
+  namespace: comp90024
+spec:
+  template:
+    spec:
+      containers:
+      - name: twitter-handler
+        image: TODO
+        command: ["sh", "-c", "echo hello > /data/hello"]
+        env:
+        - name: TWITTER_FILE_LINK
+          value: "{{ twitter_download_link }}"
+        volumeMounts:
+        - name: twitter-handler-pvc
+          mountPath: /mnt/data
+      restartPolicy: Never
+      nodeSelector:
+        ccc.nodes: twitter
+  volumeClaimTemplates:
+  - metadata:
+      name: twitter-handler-pvc
+      namespace: comp90024
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "ccc-hostpath"
+      resources:
+        requests:
+          storage: 90Gi

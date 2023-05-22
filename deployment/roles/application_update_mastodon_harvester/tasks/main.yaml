@@ -1,0 +1,6 @@
+---
+- name: Create mastodon harvester application
+  kubernetes.core.k8s:
+    state: present
+    template: 'mastodon_harvester.yaml.j2'
+  loop: "{{ mastodon_harvester_target }}"

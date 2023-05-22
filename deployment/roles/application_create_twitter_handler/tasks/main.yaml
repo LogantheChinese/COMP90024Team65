@@ -1,0 +1,27 @@
+---
+- name: Create twitter handler application
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: twitter-handler
+        namespace: comp90024
+      spec:
+        replicas: 1
+        selector:
+          matchLabels:
+            app: twitter-handler
+        template:
+          metadata:
+            labels:
+              app: twitter-handler
+          spec:
+            containers:
+              - name: twitter-handler
+                image: "registry.hub.docker.com/ccc/twitter-handler:latest"
+                imagePullPolicy: Always
+                env:
+                  - name: TODO
+                    value: TODO
