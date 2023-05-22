@@ -1,0 +1,6 @@
+function (doc) {
+
+    dateResult = doc.date.year + "|" + doc.date.month + "|All"
+    emit(dateResult, 1);
+
+}
