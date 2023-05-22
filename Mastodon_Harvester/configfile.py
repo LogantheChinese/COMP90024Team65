@@ -25,5 +25,5 @@ ACCOUNT = {
     "mail": os.environ.get('ACCOUNT_MAIL'), # account of Mastodon
     "passwd": os.environ.get('ACCOUNT_PASSWORD'),
     "file": os.environ.get('ACCOUNT_FILE'), #do not change
-    "URL": os.environ.get('ACCOUNT_URL'), # the server of Mastodon
+    "URL": os.environ.get('SERVER_URL'), # the server of Mastodon
 }
