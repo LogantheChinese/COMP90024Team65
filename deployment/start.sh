@@ -154,7 +154,7 @@ func_submit_twitter_files() {
     echo "Your current Twitter file link is: "
     cat ./vars/application_twitter_vars.yaml | grep -E "twitter_download_link"
     read -p "Do you want to modify the Twitter file link(yes/no)? " CONTINUE
-    if [ "$CONTINUE" != "yes" ]; then
+    if [ "$CONTINUE" = "yes" ]; then
         echo "Please input the Dropbox URL link of the Twitter file, do not contain query separator like'?'"
         echo "(Example: https://www.dropbox.com/s/r6l4ke6h858bzph/twitter-huge.json.zip)"
         read -p "Please input your Dropbox zip file URL: " twitter_file_link_new
@@ -171,7 +171,7 @@ func_submit_twitter_files() {
 func_update_mastodon_harvester() {
     cat ./vars/application_mastodon_vars.yaml
     read -p "Do you want to update the Mastodon Harvester config in ./vars/application_mastodon_vars.yaml (yes/no)?" CONTINUE
-    if [ "$CONTINUE" != "yes" ]; then
+    if [ "$CONTINUE" = "yes" ]; then
         vi ./vars/application_mastodon_vars.yaml
     fi
     ansible-playbook application_mastodon_harvester.yaml
