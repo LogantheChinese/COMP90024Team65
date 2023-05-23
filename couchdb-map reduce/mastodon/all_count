@@ -1,6 +1,15 @@
 function (doc) {
+  var createdAt = new Date(doc.created_at);
+  var year = createdAt.getFullYear();
+  var month = createdAt.getMonth() + 1; 
 
-    dateResult = doc.date.year + "|" + doc.date.month + "|All"
-    emit(dateResult, 1);
+  var locations = {};
 
+  var locationKeyword = year + '/' + month + '|all';
+  locations[locationKeyword] = 1;
+
+
+  for (var locationKeywords in locations) {
+    emit(locationKeywords, 1);
+  }
 }
