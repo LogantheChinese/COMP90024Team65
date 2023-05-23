@@ -34,3 +34,10 @@ jobs:
           context: "{{defaultContext}}:tweet_docker"
           push: true
           tags: comp90024team65/tweet-handler:latest
+
+      - name: Build and push Backend Dashboard
+        uses: docker/build-push-action@v4
+        with:
+          context: "{{defaultContext}}:back-end"
+          push: true
+          tags: comp90024team65/backend-dashboard:latest
