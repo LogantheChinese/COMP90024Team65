@@ -10,31 +10,31 @@
       <!-- left -->
       <section class="left">
         <ItemPage>
-          <PerthPage :tdata="tdata.tweetData" :udata="udata.unemploymentData"></PerthPage>
+          <PerthPage :tdata="tdata" :udata="udata.unemploymentData"></PerthPage>
         </ItemPage>
         <ItemPage>
-          <DarwinPage :tdata="tdata.tweetData" :udata="udata.unemploymentData"></DarwinPage>
+          <DarwinPage :tdata="tdata" :udata="udata.unemploymentData"></DarwinPage>
         </ItemPage>
       </section>
       <section class="mid">
         <ItemPage>
-          <AdelaidePage :tdata="tdata.tweetData" :udata="udata.unemploymentData"></AdelaidePage>
+          <AdelaidePage :tdata="tdata" :udata="udata.unemploymentData"></AdelaidePage>
         </ItemPage>
         <ItemPage>
-          <MelbournePage :tdata="tdata.tweetData" :udata="udata.unemploymentData"></MelbournePage>
+          <MelbournePage :tdata="tdata" :udata="udata.unemploymentData"></MelbournePage>
         </ItemPage>
       </section>
       <section class="right">
         <ItemPage>
-          <BrisbanePage :tdata="tdata.tweetData" :udata="udata.unemploymentData"></BrisbanePage>
+          <BrisbanePage :tdata="tdata" :udata="udata.unemploymentData"></BrisbanePage>
         </ItemPage>
         <ItemPage>
-          <SydneyPage :tdata="tdata.tweetData" :udata="udata.unemploymentData"></SydneyPage>
+          <SydneyPage :tdata="tdata" :udata="udata.unemploymentData"></SydneyPage>
         </ItemPage>
       </section>
       <section class="right2">
         <ItemPage>
-          <HobartPage :tdata="tdata.tweetData" :udata="udata.unemploymentData"></HobartPage>
+          <HobartPage :tdata="tdata" :udata="udata.unemploymentData"></HobartPage>
         </ItemPage>
         <ItemPage>
           <PiePage :neg="mdata.matodonData[0]" :all="mdata.matodonData[1]"></PiePage>
@@ -55,7 +55,7 @@ import HobartPage from "@/components/HobartPage.vue";
 import PerthPage from "@/components/PerthPage.vue";
 import SydneyPage from "@/components/SydneyPage.vue";
 import PiePage from "@/components/PiePage.vue";
-import { inject, reactive, onMounted } from "vue";
+import { inject,reactive, onMounted} from "vue";
 export default {
   components: {
     ItemPage,
@@ -76,153 +76,157 @@ export default {
     let UData = reactive({});
     let AllData = reactive({});
     const udata = reactive({
-      unemploymentData: {
-        Melbourne: [
-          0.04875,
-          0.047625,
-          0.045375,
-          0.044125,
-          0.041749999999999995,
-          0.039,
-          0.037375
-        ],
-        Sydney: [
-          0.044000000000000004,
-          0.04271428571428571,
-          0.03892857142857143,
-          0.038214285714285715,
-          0.03642857142857143,
-          0.03442857142857143,
-          0.03328571428571429
-        ],
-        Adelaide: [
-          0.049249999999999995,
-          0.049,
-          0.0475,
-          0.047,
-          0.04650000000000001,
-          0.044,
-          0.04125
-        ],
-        Brisbane: [
-          0.0354,
-          0.035,
-          0.034199999999999994,
-          0.033,
-          0.0316,
-          0.027999999999999997,
-          0.026399999999999996
-        ],
-        Darwin: [
-          0.032,
-          0.034,
-          0.037000000000000005,
-          0.038,
-          0.038,
-          0.037000000000000005,
-          0.038
-        ],
-        Hobart: [
-          0.04,
-          0.040999999999999995,
-          0.040999999999999995,
-          0.040999999999999995,
-          0.042,
-          0.042,
-          0.044000000000000004
-        ],
-        Perth: [
-          0.037200000000000004,
-          0.0362,
-          0.0346,
-          0.0338,
-          0.0334,
-          0.0318,
-          0.0304
-        ]
+      unemploymentData:{
+      Melbourne: [
+        0.04875,
+        0,
+        0.047625,
+        0.045375,
+        0.044125,
+        0.041749999999999995,
+        0.039,
+        0.037375
+      ],
+      Sydney: [
+        0.044000000000000004,
+        0.04271428571428571,
+        0.03892857142857143,
+        0.038214285714285715,
+        0.03642857142857143,
+        0.03442857142857143,
+        0.03328571428571429
+      ],
+      Adelaide: [
+        0.049249999999999995,
+        0.049,
+        0.0475,
+        0.047,
+        0.04650000000000001,
+        0.044,
+        0.04125
+      ],
+      Brisbane: [
+        0.0354,
+        0.035,
+        0.034199999999999994,
+        0.033,
+        0.0316,
+        0.027999999999999997,
+        0.026399999999999996
+      ],
+      Darwin: [
+        0.032,
+        0.034,
+        0.037000000000000005,
+        0.038,
+        0.038,
+        0.037000000000000005,
+        0.038
+      ],
+      Hobart: [
+        0.04,
+        0.040999999999999995,
+        0.040999999999999995,
+        0.040999999999999995,
+        0.042,
+        0.042,
+        0.044000000000000004
+      ],
+      Perth: [
+        0.037200000000000004,
+        0.0362,
+        0.0346,
+        0.0338,
+        0.0334,
+        0.0318,
+        0.0304
+      ]
       }
-    });
-    const tdata = reactive({
-      tweetData: {
-        Melbourne: [
-          0.06188203855697652,
-          0.05836463100945572,
-          0.059812274659093195,
-          0.05993438980785586,
-          0.058094127464720924,
-          0.05971247146890516,
-          0.05755107078936
-        ],
-        Sydney: [
-          0.050913915678159095,
-          0.05226645831113637,
-          0.05116010952586828,
-          0.05461471706781694,
-          0.05415914136824305,
-          0.05378854885311634,
-          0.04881138932417564
-        ],
-        Adelaide: [
-          0.052434456928838954,
-          0.050966158879460176,
-          0.05098321096678133,
-          0.05700621186300918,
-          0.055284552845528454,
-          0.054729234314444326,
-          0.052283362917540745
-        ],
-        Brisbane: [
-          0.06770085224552332,
-          0.06179335049815292,
-          0.06168495135582695,
-          0.06112984822934233,
-          0.05799703379907892,
-          0.06109238031018206,
-          0.05985799207397622
-        ],
-        Darwin: [
-          0.1120042872454448,
-          0.11565034544908381,
-          0.09301204819277109,
-          0.05757891085674644,
-          0.05442583732057416,
-          0.04310344827586207,
-          0.05443548387096774
-        ],
-        Hobart: [
-          0.060810810810810814,
-          0.055020632737276476,
-          0.04809894640403115,
-          0.05469012663902275,
-          0.053945818610129564,
-          0.06316812439261418,
-          0.06666666666666667
-        ],
-        Perth: [
-          0.057306770899003906,
-          0.06321728783633362,
-          0.064030131826742,
-          0.05935200617911297,
-          0.05538097526710784,
-          0.05174742529123755,
-          0.054692852249372
-        ]
-      }
-    });
-    const mdata = reactive({
-      matodonData: [3285, 271237]
-    });
+    })
+    // let udata = {
+    //   Melbourne: [
+    //     0.04875,
+    //     0.047625,
+    //     0.045375,
+    //     0.044125,
+    //     0.041749999999999995,
+    //     0.039,
+    //     0.037375
+    //   ],
+    //   Sydney: [
+    //     0.044000000000000004,
+    //     0.04271428571428571,
+    //     0.03892857142857143,
+    //     0.038214285714285715,
+    //     0.03642857142857143,
+    //     0.03442857142857143,
+    //     0.03328571428571429
+    //   ],
+    //   Adelaide: [
+    //     0.049249999999999995,
+    //     0.049,
+    //     0.0475,
+    //     0.047,
+    //     0.04650000000000001,
+    //     0.044,
+    //     0.04125
+    //   ],
+    //   Brisbane: [
+    //     0.0354,
+    //     0.035,
+    //     0.034199999999999994,
+    //     0.033,
+    //     0.0316,
+    //     0.027999999999999997,
+    //     0.026399999999999996
+    //   ],
+    //   Darwin: [
+    //     0.032,
+    //     0.034,
+    //     0.037000000000000005,
+    //     0.038,
+    //     0.038,
+    //     0.037000000000000005,
+    //     0.038
+    //   ],
+    //   Hobart: [
+    //     0.04,
+    //     0.040999999999999995,
+    //     0.040999999999999995,
+    //     0.040999999999999995,
+    //     0.042,
+    //     0.042,
+    //     0.044000000000000004
+    //   ],
+    //   Perth: [
+    //     0.037200000000000004,
+    //     0.0362,
+    //     0.0346,
+    //     0.0338,
+    //     0.0334,
+    //     0.0318,
+    //     0.0304
+    //   ]
+    // };
+    let tdata = {
+      Melbourne: [0.06188203855697652, 0.05836463100945572, 0.059812274659093195, 0.05993438980785586, 0.058094127464720924, 0.05971247146890516, 0.05755107078936],
+      Sydney: [0.050913915678159095, 0.05226645831113637, 0.05116010952586828, 0.05461471706781694, 0.05415914136824305, 0.05378854885311634, 0.04881138932417564],
+      Adelaide: [0.052434456928838954, 0.050966158879460176, 0.05098321096678133, 0.05700621186300918, 0.055284552845528454, 0.054729234314444326, 0.052283362917540745],
+      Brisbane: [0.06770085224552332, 0.06179335049815292, 0.06168495135582695, 0.06112984822934233, 0.05799703379907892, 0.06109238031018206, 0.05985799207397622],
+      Darwin: [0.1120042872454448, 0.11565034544908381, 0.09301204819277109, 0.05757891085674644, 0.05442583732057416, 0.04310344827586207, 0.05443548387096774],
+      Hobart: [0.060810810810810814, 0.055020632737276476, 0.04809894640403115, 0.05469012663902275, 0.053945818610129564, 0.06316812439261418, 0.06666666666666667],
+      Perth: [0.057306770899003906, 0.06321728783633362, 0.064030131826742, 0.05935200617911297, 0.05538097526710784, 0.05174742529123755, 0.054692852249372]
+    };
+    const mdata =reactive({
+      matodonData : [0,0]
+    })
     const router = useRouter();
     async function getState() {
-      NegData = await $axios.get(
-        "http://localhost:8082/getAllTweetNegativeData"
-      );
+      NegData = await $axios.get("http://localhost:8082/getAllTweetNegativeData");
       UData = await $axios.get("http://localhost:8082/getAllSudoData");
       AllData = await $axios.get("http://localhost:8082/getAllTweetData");
-      NegMData = await $axios.get(
-        "http://localhost:8082/getAllMastodonNegativeData"
-      );
-      AllMData = await $axios.get("http://localhost:8082/getAllMastodonData");
+      NegMData = await $axios.get("http://localhost:8082/getAllMastodonNegativeData")
+      AllMData = await $axios.get("http://localhost:8082/getAllMastodonData")
     }
     const getUnemployment = listData => {
       let cacheData = listData;
@@ -255,31 +259,29 @@ export default {
       let cacheData = listData;
       for (let i = 0; i < listData.length; ++i) {
         if (cacheData[i].key.search("Adelaide") != -1) {
-          tdata.tweetData.Adelaide[
-            Number(cacheData[i].key.substring(5, 6)) - 2
-          ] = cacheData[i].value;
+          tdata.Adelaide[Number(cacheData[i].key.substring(5, 6)) - 2] =
+            cacheData[i].value;
         } else if (cacheData[i].key.search("Brisbane") != -1) {
-          tdata.tweetData.Brisbane[
-            Number(cacheData[i].key.substring(5, 6)) - 2
-          ] = cacheData[i].value;
+          tdata.Brisbane[Number(cacheData[i].key.substring(5, 6)) - 2] =
+            cacheData[i].value;
         } else if (cacheData[i].key.search("Darwin") != -1) {
-          tdata.tweetData.Darwin[Number(cacheData[i].key.substring(5, 6)) - 2] =
+          tdata.Darwin[Number(cacheData[i].key.substring(5, 6)) - 2] =
             cacheData[i].value;
         } else if (cacheData[i].key.search("Melbourne") != -1) {
-          tdata.tweetData.Melbourne[
-            Number(cacheData[i].key.substring(5, 6)) - 2
-          ] = cacheData[i].value;
+          tdata.Melbourne[Number(cacheData[i].key.substring(5, 6)) - 2] =
+            cacheData[i].value;
         } else if (cacheData[i].key.search("Hobart") != -1) {
-          tdata.tweetData.Hobart[Number(cacheData[i].key.substring(5, 6)) - 2] =
+          tdata.Hobart[Number(cacheData[i].key.substring(5, 6)) - 2] =
             cacheData[i].value;
         } else if (cacheData[i].key.search("Perth") != -1) {
-          tdata.tweetData.Perth[Number(cacheData[i].key.substring(5, 6)) - 2] =
+          tdata.Perth[Number(cacheData[i].key.substring(5, 6)) - 2] =
             cacheData[i].value;
         } else {
-          tdata.tweetData.Sydney[Number(cacheData[i].key.substring(5, 6)) - 2] =
+          tdata.Sydney[Number(cacheData[i].key.substring(5, 6)) - 2] =
             cacheData[i].value;
         }
       }
+      console.log(tdata);
     };
     const getNegtive = listData => {
       let cacheData = listData;
@@ -306,21 +308,21 @@ export default {
           tdata.Sydney[Number(cacheData[i].key.substring(5, 6)) - 2] /=
             cacheData[i].value;
         }
-        console.log(tdata);
+        console.log(tdata)
       }
     };
     onMounted(() => {
       getState().then(() => {
-        getUnemployment(UData.data.data);
-        getTweets(NegData.data.data);
-        getNegtive(AllData.data.data);
-        // console.log(UData.data.data)
-        // console.log(NegData.data.data)
-        // console.log(AllData.data.data)
-        mdata.matodonData[0] = NegMData.data.data[0].value;
-        mdata.matodonData[1] = AllMData.data.data[0].value;
-        // console.log(mdata[0])
-        // console.log(mdata[1])
+        // getUnemployment(UData.data.data)
+        // getTweets(NegData.data.data)
+        // getNegtive(AllData.data.data)
+        console.log(UData.data.data)
+        console.log(NegData.data.data)
+        console.log(AllData.data.data)
+        mdata.matodonData[0] = NegMData.data.data[0].value
+        mdata.matodonData[1] = AllMData.data.data[0].value
+        console.log(mdata[0])
+        console.log(mdata[1])
       });
     });
     const goTo1 = () => {

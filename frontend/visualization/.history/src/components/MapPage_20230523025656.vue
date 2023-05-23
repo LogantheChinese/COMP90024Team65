@@ -5,12 +5,9 @@
 <script>
 // import axios from "axios";
 import mapData from "./public/Australia.json"
-import { onMounted, inject,reactive } from "vue";
+import { onMounted, inject } from "vue";
 export default {
   setup() {
-    const mdata = reactive({
-      neg:{Melbourne:37188,Sydney:30893,Brisbane:15720,Adelaide:7143,Perth:10413,Hobart:1662,Darwin:1324}
-    });
     let $echarts = inject("echarts");
     onMounted(() => {
         $echarts.registerMap("australia", mapData);
@@ -107,13 +104,13 @@ export default {
                 color: "#b02a02"
               },
               data: [
-                { name: "Melbourne", value: [144.963, -37.8136, mdata.neg.Melbourne] },
-                { name: "Sydney", value: [151.2, -33.8667, mdata.neg.Sydney] },
-                { name: "Brisbane", value: [153.028, -27.4678, mdata.neg.Brisbane] },
-                { name: "Adelaide", value: [138.6, -34.9333, mdata.neg.Adelaide] },
-                { name: "Perth", value: [115.859, -31.9522, mdata.neg.Perth] },
-                { name: "Darwin", value: [130.891, -12.4152, mdata.neg.Darwin] },
-                { name: "Hobart", value: [147.325, -42.8806, mdata.neg.Hobart] }
+                { name: "Melbourne", value: [144.963, -37.8136, 37188] },
+                { name: "Sydney", value: [151.2, -33.8667, 30893] },
+                { name: "Brisbane", value: [153.028, -27.4678, 15720] },
+                { name: "Adelaide", value: [138.6, -34.9333, 7143] },
+                { name: "Perth", value: [115.859, -31.9522, 10413] },
+                { name: "Darwin", value: [130.891, -12.4152, 1324] },
+                { name: "Hobart", value: [147.325, -42.8806, 1662] }
               ]
             }
           ]

@@ -210,7 +210,7 @@ export default {
       }
     });
     const mdata = reactive({
-      matodonData: [3285, 271237]
+      matodonData: [0, 0]
     });
     const router = useRouter();
     async function getState() {
