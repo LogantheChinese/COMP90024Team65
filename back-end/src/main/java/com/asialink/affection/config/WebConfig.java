@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
@@ -30,6 +31,13 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedHeaders("*")
                 // 跨域允许时间
                 .maxAge(3600);
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        /* 请求 / 映射到 /static/index.html */
+        registry.addResourceHandler("/")
+                .addResourceLocations("classpath:/static/index.html");
     }
 
     @Bean(name = "fastJsonHttpMessageConverters")//使用@Bean注入fastJsonHttpMessageConvert

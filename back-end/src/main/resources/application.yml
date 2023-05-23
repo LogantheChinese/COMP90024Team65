@@ -7,14 +7,14 @@ couchdb:
     port: ${MASTODON_COUCHDB_PORT:31000}
     username: ${MASTODON_COUCHDB_USERNAME:admin}
     password: ${MASTODON_COUCHDB_PASSWORD:fM2ViRNmR3X6CLrXhe4X}
-    mastodonDB: ${MASTODON_COUCHDB_MASTODONDB:mastodon}
+    mastodonDB: ${MASTODON_COUCHDB_DATABASE:mastodon}
   tweet:
-    host: ${TWEET_COUCHDB_HOST:https://couchdb.quantumlab.cloud}
-    port: ${TWEET_COUCHDB_PORT:443}
-    sudoDB: ${TWEET_COUCHDB_SUDO:sudo}
+    host: ${TWEET_COUCHDB_HOST:http://172.26.133.116}
+    port: ${TWEET_COUCHDB_PORT:31000}
+    sudoDB: ${SUDO_COUCHDB_DATABASE:sudo}
     username: ${TWEET_COUCHDB_USERNAME:admin}
-    password: ${TWEET_COUCHDB_PASSWORD:admin}
-    tweetDB: ${TWEET_COUCHDB_TWEET:tweet_demo_2}
+    password: ${TWEET_COUCHDB_PASSWORD:fM2ViRNmR3X6CLrXhe4X}
+    tweetDB: ${TWEET_COUCHDB_DATABASE:tweet}
 
 spring:
 

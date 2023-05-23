@@ -8,6 +8,13 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/entity/CValue.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/asialink/affection/domain/entity/SudoObj.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/asialink/affection/service/impl/SudoDataService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/bg.429367cb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/chunk-vendors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/src_views_HomePage2_vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/src_views_HomePage_vue.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Api_JSON" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend Setup.md" beforeDir="false" />
@@ -160,30 +167,33 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="2CyOkGgqonGGiUWvBuSm0JVwWsw" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="postgresql" />
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="模块" />
-    <property name="project.structure.proportion" value="0.13876455" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/luogeng/Desktop/back-end/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "spring.configuration.checksum": "612434744ccf08d62fd31932e0f82443",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -195,8 +205,8 @@
       <recent name="com.asialink.affection.domain.dto" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -298,7 +308,6 @@
         <item itemvalue="Gradle.back-end" />
         <item itemvalue="Docker.Dockerfile build" />
         <item itemvalue="Gradle.back-end [build]" />
-        <item itemvalue="JAR 应用程序.CCC-0.0.1-SNAPSHOT-plain.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -348,7 +357,8 @@
       <workItem from="1683374545311" duration="4624000" />
       <workItem from="1684304772033" duration="36772000" />
       <workItem from="1684488462798" duration="14589000" />
-      <workItem from="1684595359829" duration="1474000" />
+      <workItem from="1684595359829" duration="727000" />
+      <workItem from="1684615542507" duration="4457000" />
     </task>
     <servers />
   </component>
@@ -365,7 +375,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
