@@ -208,20 +208,9 @@ export default {
         ]
     });
     const mdata = reactive({
-      matodonData: [0, 0]
+      matodonData: [3285, 271237]
     });
     const router = useRouter();
-    // async function getState() {
-    //   NegData = await $axios.get(
-    //     "/getAllTweetNegativeData"
-    //   );
-    //   UData = await $axios.get("/getAllSudoData");
-    //   AllData = await $axios.get("/getAllTweetData");
-    //   NegMData = await $axios.get(
-    //     "/getAllMastodonNegativeData"
-    //   );
-    //   AllMData = await $axios.get("/getAllMastodonData");
-    // }
     async function getState() {
       NegData = await $axios.get(
         "http://localhost:8082/getAllTweetNegativeData"
@@ -289,44 +278,48 @@ export default {
             cacheData[i].value;
         }
       }
-      console.log('tdata',tdata)
     };
     const getNegtive = listData => {
       let cacheData = listData;
       for (let i = 0; i < listData.length; ++i) {
         if (cacheData[i].key.search("Adelaide") != -1) {
-          tdata.Adelaide[Number(cacheData[i].key.substring(5, 6)) - 2] /=
+          tdata.tweetData.Adelaide[Number(cacheData[i].key.substring(5, 6)) - 2] /=
             cacheData[i].value;
         } else if (cacheData[i].key.search("Brisbane") != -1) {
-          tdata.Brisbane[Number(cacheData[i].key.substring(5, 6)) - 2] /=
+          tdata.tweetData.Brisbane[Number(cacheData[i].key.substring(5, 6)) - 2] /=
             cacheData[i].value;
         } else if (cacheData[i].key.search("Darwin") != -1) {
-          tdata.Darwin[Number(cacheData[i].key.substring(5, 6)) - 2] /=
+          tdata.tweetData.Darwin[Number(cacheData[i].key.substring(5, 6)) - 2] /=
             cacheData[i].value;
         } else if (cacheData[i].key.search("Melbourne") != -1) {
-          tdata.Melbourne[Number(cacheData[i].key.substring(5, 6)) - 2] /=
+          tdata.tweetData.Melbourne[Number(cacheData[i].key.substring(5, 6)) - 2] /=
             cacheData[i].value;
         } else if (cacheData[i].key.search("Hobart") != -1) {
-          tdata.Hobart[Number(cacheData[i].key.substring(5, 6)) - 2] /=
+          tdata.tweetData.Hobart[Number(cacheData[i].key.substring(5, 6)) - 2] /=
             cacheData[i].value;
         } else if (cacheData[i].key.search("Perth") != -1) {
-          tdata.Perth[Number(cacheData[i].key.substring(5, 6)) - 2] /=
+          tdata.tweetData.Perth[Number(cacheData[i].key.substring(5, 6)) - 2] /=
             cacheData[i].value;
         } else {
-          tdata.Sydney[Number(cacheData[i].key.substring(5, 6)) - 2] /=
+          tdata.tweetData.Sydney[Number(cacheData[i].key.substring(5, 6)) - 2] /=
             cacheData[i].value;
         }
+        console.log(tdata);
       }
-      console.log('succ',tdata)
     };
     onMounted(() => {
       getState().then(() => {
+        // console.log('neg',NegData.data.data)
         getUnemployment(UData.data.data);
         getTweets(NegData.data.data);
+        console.log('neg',tdata.tweetData)
         getNegtive(AllData.data.data);
+        // console.log(NegData.data.data)
+        // console.log(AllData.data.data)
         mdata.matodonData[0] = NegMData.data.data[0].value;
         mdata.matodonData[1] = AllMData.data.data[0].value;
-
+        // console.log(mdata[0])
+        // console.log(mdata[1])
       });
     });
     const goTo1 = () => {

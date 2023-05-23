@@ -208,7 +208,7 @@ export default {
         ]
     });
     const mdata = reactive({
-      matodonData: [0, 0]
+      matodonData: [3285, 271237]
     });
     const router = useRouter();
     // async function getState() {
@@ -321,12 +321,16 @@ export default {
     };
     onMounted(() => {
       getState().then(() => {
+        // console.log('neg',NegData.data.data)
         getUnemployment(UData.data.data);
         getTweets(NegData.data.data);
-        getNegtive(AllData.data.data);
+        // getNegtive(AllData.data.data);
+        // console.log(NegData.data.data)
+        // console.log(AllData.data.data)
         mdata.matodonData[0] = NegMData.data.data[0].value;
         mdata.matodonData[1] = AllMData.data.data[0].value;
-
+        // console.log(mdata[0])
+        // console.log(mdata[1])
       });
     });
     const goTo1 = () => {

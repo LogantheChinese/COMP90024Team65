@@ -208,7 +208,7 @@ export default {
         ]
     });
     const mdata = reactive({
-      matodonData: [0, 0]
+      matodonData: [3285, 271237]
     });
     const router = useRouter();
     // async function getState() {
@@ -289,7 +289,6 @@ export default {
             cacheData[i].value;
         }
       }
-      console.log('tdata',tdata)
     };
     const getNegtive = listData => {
       let cacheData = listData;
@@ -316,17 +315,22 @@ export default {
           tdata.Sydney[Number(cacheData[i].key.substring(5, 6)) - 2] /=
             cacheData[i].value;
         }
+        console.log('hPerth',tdata.Perth);
       }
-      console.log('succ',tdata)
     };
     onMounted(() => {
       getState().then(() => {
+        // console.log('neg',NegData.data.data)
         getUnemployment(UData.data.data);
+        console.log('tdata',tdata)
         getTweets(NegData.data.data);
         getNegtive(AllData.data.data);
+        // console.log(NegData.data.data)
+        // console.log(AllData.data.data)
         mdata.matodonData[0] = NegMData.data.data[0].value;
         mdata.matodonData[1] = AllMData.data.data[0].value;
-
+        // console.log(mdata[0])
+        // console.log(mdata[1])
       });
     });
     const goTo1 = () => {

@@ -10,31 +10,31 @@
       <!-- left -->
       <section class="left">
         <ItemPage>
-          <PerthPage :tdata="tdata.Perth" :udata="udata.unemploymentData"></PerthPage>
+          <PerthPage :tdata="tdata.tweetData" :udata="udata.unemploymentData"></PerthPage>
         </ItemPage>
         <ItemPage>
-          <DarwinPage :tdata="tdata.Darwin" :udata="udata.unemploymentData"></DarwinPage>
+          <DarwinPage :tdata="tdata.tweetData" :udata="udata.unemploymentData"></DarwinPage>
         </ItemPage>
       </section>
       <section class="mid">
         <ItemPage>
-          <AdelaidePage :tdata="tdata.Adelaide" :udata="udata.unemploymentData"></AdelaidePage>
+          <AdelaidePage :tdata="tdata.tweetData" :udata="udata.unemploymentData"></AdelaidePage>
         </ItemPage>
         <ItemPage>
-          <MelbournePage :tdata="tdata.Melbourne" :udata="udata.unemploymentData"></MelbournePage>
+          <MelbournePage :tdata="tdata.tweetData" :udata="udata.unemploymentData"></MelbournePage>
         </ItemPage>
       </section>
       <section class="right">
         <ItemPage>
-          <BrisbanePage :tdata="tdata.Brisbane" :udata="udata.unemploymentData"></BrisbanePage>
+          <BrisbanePage :tdata="tdata.tweetData" :udata="udata.unemploymentData"></BrisbanePage>
         </ItemPage>
         <ItemPage>
-          <SydneyPage :tdata="tdata.Sydney" :udata="udata.unemploymentData"></SydneyPage>
+          <SydneyPage :tdata="tdata.tweetData" :udata="udata.unemploymentData"></SydneyPage>
         </ItemPage>
       </section>
       <section class="right2">
         <ItemPage>
-          <HobartPage :tdata="tdata.Hobart" :udata="udata.unemploymentData"></HobartPage>
+          <HobartPage :tdata="tdata.tweetData" :udata="udata.unemploymentData"></HobartPage>
         </ItemPage>
         <ItemPage>
           <PiePage :neg="mdata.matodonData[0]" :all="mdata.matodonData[1]"></PiePage>
@@ -143,6 +143,7 @@ export default {
       }
     });
     const tdata = reactive({
+      tweetData: {
         Melbourne: [
           0.06188203855697652,
           0.05836463100945572,
@@ -206,22 +207,12 @@ export default {
           0.05174742529123755,
           0.054692852249372
         ]
+      }
     });
     const mdata = reactive({
-      matodonData: [0, 0]
+      matodonData: [3285, 271237]
     });
     const router = useRouter();
-    // async function getState() {
-    //   NegData = await $axios.get(
-    //     "/getAllTweetNegativeData"
-    //   );
-    //   UData = await $axios.get("/getAllSudoData");
-    //   AllData = await $axios.get("/getAllTweetData");
-    //   NegMData = await $axios.get(
-    //     "/getAllMastodonNegativeData"
-    //   );
-    //   AllMData = await $axios.get("/getAllMastodonData");
-    // }
     async function getState() {
       NegData = await $axios.get(
         "http://localhost:8082/getAllTweetNegativeData"
@@ -264,69 +255,73 @@ export default {
       let cacheData = listData;
       for (let i = 0; i < listData.length; ++i) {
         if (cacheData[i].key.search("Adelaide") != -1) {
-          tdata.Adelaide[
+          tdata.tweetData.Adelaide[
             Number(cacheData[i].key.substring(5, 6)) - 2
           ] = cacheData[i].value;
         } else if (cacheData[i].key.search("Brisbane") != -1) {
-          tdata.Brisbane[
+          tdata.tweetData.Brisbane[
             Number(cacheData[i].key.substring(5, 6)) - 2
           ] = cacheData[i].value;
         } else if (cacheData[i].key.search("Darwin") != -1) {
-          tdata.Darwin[Number(cacheData[i].key.substring(5, 6)) - 2] =
+          tdata.tweetData.Darwin[Number(cacheData[i].key.substring(5, 6)) - 2] =
             cacheData[i].value;
         } else if (cacheData[i].key.search("Melbourne") != -1) {
-          tdata.Melbourne[
+          tdata.tweetData.Melbourne[
             Number(cacheData[i].key.substring(5, 6)) - 2
           ] = cacheData[i].value;
         } else if (cacheData[i].key.search("Hobart") != -1) {
-          tdata.Hobart[Number(cacheData[i].key.substring(5, 6)) - 2] =
+          tdata.tweetData.Hobart[Number(cacheData[i].key.substring(5, 6)) - 2] =
             cacheData[i].value;
         } else if (cacheData[i].key.search("Perth") != -1) {
-          tdata.Perth[Number(cacheData[i].key.substring(5, 6)) - 2] =
+          tdata.tweetData.Perth[Number(cacheData[i].key.substring(5, 6)) - 2] =
             cacheData[i].value;
         } else {
-          tdata.Sydney[Number(cacheData[i].key.substring(5, 6)) - 2] =
+          tdata.tweetData.Sydney[Number(cacheData[i].key.substring(5, 6)) - 2] =
             cacheData[i].value;
         }
       }
-      console.log('tdata',tdata)
     };
     const getNegtive = listData => {
       let cacheData = listData;
       for (let i = 0; i < listData.length; ++i) {
         if (cacheData[i].key.search("Adelaide") != -1) {
-          tdata.Adelaide[Number(cacheData[i].key.substring(5, 6)) - 2] /=
+          tdata.tweetData.Adelaide[Number(cacheData[i].key.substring(5, 6)) - 2] /=
             cacheData[i].value;
         } else if (cacheData[i].key.search("Brisbane") != -1) {
-          tdata.Brisbane[Number(cacheData[i].key.substring(5, 6)) - 2] /=
+          tdata.tweetData.Brisbane[Number(cacheData[i].key.substring(5, 6)) - 2] /=
             cacheData[i].value;
         } else if (cacheData[i].key.search("Darwin") != -1) {
-          tdata.Darwin[Number(cacheData[i].key.substring(5, 6)) - 2] /=
+          tdata.tweetData.Darwin[Number(cacheData[i].key.substring(5, 6)) - 2] /=
             cacheData[i].value;
         } else if (cacheData[i].key.search("Melbourne") != -1) {
-          tdata.Melbourne[Number(cacheData[i].key.substring(5, 6)) - 2] /=
+          tdata.tweetData.Melbourne[Number(cacheData[i].key.substring(5, 6)) - 2] /=
             cacheData[i].value;
         } else if (cacheData[i].key.search("Hobart") != -1) {
-          tdata.Hobart[Number(cacheData[i].key.substring(5, 6)) - 2] /=
+          tdata.tweetData.Hobart[Number(cacheData[i].key.substring(5, 6)) - 2] /=
             cacheData[i].value;
         } else if (cacheData[i].key.search("Perth") != -1) {
-          tdata.Perth[Number(cacheData[i].key.substring(5, 6)) - 2] /=
+          tdata.tweetData.Perth[Number(cacheData[i].key.substring(5, 6)) - 2] /=
             cacheData[i].value;
         } else {
-          tdata.Sydney[Number(cacheData[i].key.substring(5, 6)) - 2] /=
+          tdata.tweetData.Sydney[Number(cacheData[i].key.substring(5, 6)) - 2] /=
             cacheData[i].value;
         }
+        console.log(tdata);
       }
-      console.log('succ',tdata)
     };
     onMounted(() => {
       getState().then(() => {
+        // console.log('neg',NegData.data.data)
         getUnemployment(UData.data.data);
         getTweets(NegData.data.data);
+        console.log(tdata.tweetData)
         getNegtive(AllData.data.data);
+        // console.log(NegData.data.data)
+        // console.log(AllData.data.data)
         mdata.matodonData[0] = NegMData.data.data[0].value;
         mdata.matodonData[1] = AllMData.data.data[0].value;
-
+        // console.log(mdata[0])
+        // console.log(mdata[1])
       });
     });
     const goTo1 = () => {

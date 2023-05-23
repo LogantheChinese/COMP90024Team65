@@ -1,21 +1,22 @@
 <template>
-  <div class="chart" id="melbournecharts"></div>
+  <div class="chart" id="perthcharts"></div>
 </template>
-
+   
 <script>
-import { onMounted, inject } from "vue";
+import { onMounted, inject,watch } from "vue";
 export default {
   props: {
     tdata: Object,
     udata: Object
   },
   setup(props) {
+    console.log('uPerth',props.tdata)
     let $echarts = inject("echarts");
     onMounted(() => {
-      let myChart = $echarts.init(document.getElementById("melbournecharts"));
+      let myChart = $echarts.init(document.getElementById("perthcharts"));
       myChart.setOption({
         title: {
-          text: "Melbourne",
+          text: "Perth",
           textStyle: {
             fontFamily: "Times New Roman",
             fontSize: 13,
@@ -63,7 +64,7 @@ export default {
             name: "Unemployment",
             type: "line",
             smooth: true,
-            data: props.udata["Melbourne"],
+            data: props.udata["Perth"],
             lineStyle: {
               width: 3
             }
@@ -72,7 +73,7 @@ export default {
             name: "Negative",
             type: "line",
             smooth: true,
-            data: props.tdata,
+            data: props.tdata["Perth"],
             lineStyle: {
               width: 3
             }
@@ -80,12 +81,15 @@ export default {
         ]
       });
     });
-    return {};
+    return {
+      // tweetdata,unemploydata
+      watch
+    };
   }
 };
 </script>
-
-<style>
+   
+   <style>
 .chart {
   width: 100%;
   height: 100%;
