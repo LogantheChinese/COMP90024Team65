@@ -3,11 +3,21 @@ from streaming_listener import CallbackStreamListener
 from handler import CouchDBHandler  
 import configfile as config
 import time
+from os.path import exists
+
 
 def login():
     mastodon = Mastodon(client_id = 'pytooter_clientcred.secret',)
     mastodon.log_in(config.ACCOUNT["mail"], config.ACCOUNT["passwd"], to_file = 'pytooter_usercred.secret')
     return mastodon
+
+if not exists(config.ACCOUNT["file"]):
+    print("User credentials file is not exists. Let's create one.")
+    Mastodon.create_app('pytooterapp', 
+            api_base_url = config.ACCOUNT["URL"],
+            to_file = 'pytooter_clientcred.secret')
+else:
+    print("User credentials file already exists.")
 
 while True:
     try:
