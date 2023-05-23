@@ -1,3 +1,4 @@
+---
 mastodon_harvester_target:
   - name: "social"
     url: "https://mastodon.social"
@@ -6,8 +7,6 @@ mastodon_harvester_target:
 ACCOUNT_MAIL: FILL_YOUR_ACCOUNT
 ACCOUNT_PASSWORD: FILL_YOUR_PASSWORD
 ACCOUNT_FILE: pytooter_clientcred.secret
-DBCONFIG_ADDRESS: FILL_YOUR_ADDRESS
-DBCONFIG_PORT: 5984
-DBCONFIG_DB: mastodon
-DB_USERNAME: FILL_DB_USERNAME
-DB_PASSWORD: FILL_DB_PASSWORD
+COUCHDB_HOST: ccc-db-svc-couchdb.comp90024.svc.cluster.local
+COUCHDB_PORT: 5984
+COUCHDB_DATABASE: mastodon

@@ -1,5 +1,5 @@
 # -- the initial number of nodes in the CouchDB cluster.
-clusterSize: {{ groups['worker_nodes'] | length }}
+clusterSize: {{ clusterSize }}
 
 # -- If allowAdminParty is enabled the cluster will start up without any database
 # administrator account; i.e., all users will be granted administrative
@@ -72,7 +72,7 @@ persistentVolume:
   annotations: {}
   accessModes:
     - ReadWriteOnce
-  size: 150Gi
+  size: {{ persistentVolume_Size }}
   storageClass: "ccc-hostpath"
 
 ## The CouchDB image

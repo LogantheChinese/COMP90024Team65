@@ -16,9 +16,9 @@ import os
 # }
 
 DBCONFIG={
-          "address"   : os.environ.get('DBCONFIG_ADDRESS'),   #'db.quantumlab.cloud',   #IP address of CouchDB, like '127.0.0.1' in string type"""
-          "port"      : os.environ.get('DBCONFIG_PORT'), #Port of CouchDB"""
-          "db"        :  os.environ.get('DBCONFIG_DB'), #Name of CouchDB Database, like 'CollectedDatabase' in string type"""
+          "address"   : os.environ.get('COUCHDB_HOST'),   #'db.quantumlab.cloud',   #IP address of CouchDB, like '127.0.0.1' in string type"""
+          "port"      : os.environ.get('COUCHDB_PORT'), #Port of CouchDB"""
+          "db"        :  os.environ.get('COUCHDB_DATABASE'), #Name of CouchDB Database, like 'CollectedDatabase' in string type"""
           }
 
 ACCOUNT = {

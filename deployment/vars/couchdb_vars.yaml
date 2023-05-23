@@ -1,0 +1,3 @@
+---
+clusterSize: 2
+persistentVolume_Size: 150Gi

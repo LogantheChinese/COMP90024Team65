@@ -1,6 +1,8 @@
-- name: Install couchdb in cluster and auto setup couchdb cluster
+- name: Create/Update couchdb in cluster and auto setup couchdb cluster
   hosts: master_nodes
-  gather_facts: no
   run_once: true
+  vars_files:
+    - vars/couchdb_vars.yaml
   roles:
     - cluster_couchdb_setup
+    - get_couchdb_credentials

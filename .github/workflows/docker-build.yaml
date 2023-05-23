@@ -22,9 +22,17 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and push
+        name: Build and push MH
         uses: docker/build-push-action@v4
         with:
           context: "{{defaultContext}}:Mastodon_Harvester"
           push: true
           tags: comp90024team65/mastodon-harvester:latest
+
+      -
+        name: Build and push TWITTER
+        uses: docker/build-push-action@v4
+        with:
+          context: "{{defaultContext}}:tweet_docker"
+          push: true
+          tags: comp90024team65/tweet-handler:latest

@@ -9,9 +9,28 @@ spec:
     spec:
       containers:
       - name: twitter-handler
-        image: TODO
-        command: ["sh", "-c", "echo hello > /data/hello"]
+        image: comp90024team65/tweet-handler:latest
+        resources:
+          limits:
+            cpu: "1"
+            memory: "1.5Gi"
         env:
+        - name: COUCHDB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              key: adminUsername
+              name: ccc-db-couchdb
+        - name: COUCHDB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: adminPassword
+              name: ccc-db-couchdb
+        - name: COUCHDB_HOST
+          value: "{{ COUCHDB_HOST }}"
+        - name: COUCHDB_PORT
+          value: "{{ COUCHDB_PORT }}"
+        - name: COUCHDB_DATABASE
+          value: "{{ COUCHDB_DATABASE }}"
         - name: TWITTER_FILE_LINK
           value: "{{ twitter_download_link }}"
         volumeMounts:

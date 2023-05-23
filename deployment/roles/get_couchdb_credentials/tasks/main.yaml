@@ -1,0 +1,18 @@
+---
+- name: Get couchdb admin username
+  shell: >
+    kubectl get secret ccc-db-couchdb -n comp90024 -o go-template='{% raw %}{{.data.adminUsername}}{% endraw %}' | base64 --decode
+  register: couchdb_username
+
+- name: Print couchdb admin username
+  debug:
+    var: couchdb_username.stdout
+    
+- name: Get couchdb admin password
+  shell: >
+    kubectl get secret ccc-db-couchdb -n comp90024 -o go-template='{% raw %}{{ .data.adminPassword }}{% endraw %}' | base64 --decode
+  register: couchdb_password
+
+- name: Print couchdb admin password
+  debug:
+    var: couchdb_password.stdout

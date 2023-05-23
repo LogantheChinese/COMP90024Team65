@@ -6,18 +6,9 @@
 
 - name: Deploy couchdb chart on 4.2.0 with values loaded from template
   kubernetes.core.helm:
-    name: ccc-db
-    namespace: comp90024
+    release_name: ccc-db
+    release_namespace: comp90024
     chart_ref: couchdb/couchdb
     chart_version: 4.2.0
     values: "{{ lookup('template', 'values.yaml.j2') | from_yaml }}"
     wait: true
-
-- name: Get couchdb admin credentials
-  shell: >
-    kubectl get secret ccc-db-couchdb -o go-template='{{ .data.adminPassword }}' | base64 --decode
-  register: couchdb_secret
-
-- name: Print couchdb admin credentials
-  debug:
-    var: couchdb_secret.stdout

@@ -1,0 +1,8 @@
+- name: Update mastodon harvester
+  hosts: master_nodes
+  gather_facts: no
+  run_once: true
+  vars_files:
+    - vars/application_mastodon_vars.yaml
+  roles:
+    - application_update_mastodon_harvester

@@ -1,2 +1,6 @@
 ---
 twitter_download_link: https://www.dropbox.com/s/r6l4ke6h858bzph/twitter-huge.json.zip
+
+COUCHDB_HOST: ccc-db-svc-couchdb.comp90024.svc.cluster.local
+COUCHDB_PORT: 5984
+COUCHDB_DATABASE: tweet

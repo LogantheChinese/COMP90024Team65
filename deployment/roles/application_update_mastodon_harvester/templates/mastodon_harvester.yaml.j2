@@ -16,17 +16,27 @@ spec:
       containers:
       - name: mastodon-harvester
         image: comp90024team65/mastodon-harvester:latest
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: "1Gi"
         env:
-        - name: DBCONFIG_ADDRESS
-          value: "{{ DBCONFIG_ADDRESS }}"
-        - name: DBCONFIG_PORT
-          value: "{{ DBCONFIG_PORT }}"
-        - name: DBCONFIG_DB
-          value: "{{ DBCONFIG_DB }}"
-        - name: DB_USERNAME
-          value: "{{ DB_USERNAME }}"
-        - name: DB_PASSWORD
-          value: "{{ DB_PASSWORD }}"
+        - name: COUCHDB_HOST
+          value: "{{ COUCHDB_HOST }}"
+        - name: COUCHDB_PORT
+          value: "{{ COUCHDB_PORT }}"
+        - name: COUCHDB_DATABASE
+          value: "{{ COUCHDB_DATABASE }}"
+        - name: COUCHDB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              key: adminUsername
+              name: ccc-db-couchdb
+        - name: COUCHDB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: adminPassword
+              name: ccc-db-couchdb
         - name: ACCOUNT_MAIL
           value: "{{ ACCOUNT_MAIL }}"
         - name: ACCOUNT_PASSWORD
@@ -35,4 +45,3 @@ spec:
           value: "{{ ACCOUNT_FILE }}"
         - name: SERVER_URL
           value: "{{ item.url }}"
-        
