@@ -1,21 +1,21 @@
 [master_nodes]
 {% for item in master_node.results %}
 {% if item.server is defined %}
-{{ item.server.addresses['qh2-uom-internal'][0].addr }}
+{{ item.server.access_ipv4 }}
 {% endif %}
 {% endfor %}
 
 [worker_nodes]
 {% for item in worker_node.results %}
 {% if item.server is defined %}
-{{ item.server.addresses['qh2-uom-internal'][0].addr }}
+{{ item.server.access_ipv4 }}
 {% endif %}
 {% endfor %}
 
 [auxiliary_nodes]
 {% for item in auxiliary_node.results %}
 {% if item.server is defined %}
-{{ item.server.addresses['qh2-uom-internal'][0].addr }}
+{{ item.server.access_ipv4 }}
 {% endif %}
 {% endfor %}
 
@@ -38,19 +38,7 @@ auxiliary_nodes
 master_nodes
 auxiliary_nodes
 
-[all]
-{% for item in master_node.results %}
-{% if item.server is defined %}
-{{ item.server.addresses['qh2-uom-internal'][0].addr }} host_name=master{{ loop.index0 }}
-{% endif %}
-{% endfor %}
-{% for item in worker_node.results %}
-{% if item.server is defined %}
-{{ item.server.addresses['qh2-uom-internal'][0].addr }} host_name=worker{{ loop.index0 }}
-{% endif %}
-{% endfor %}
-{% for item in auxiliary_node.results %}
-{% if item.server is defined %}
-{{ item.server.addresses['qh2-uom-internal'][0].addr }} host_name=auxiliary{{ loop.index0 }}
-{% endif %}
-{% endfor %}
+[all:children]
+master_nodes
+worker_nodes
+auxiliary_nodes

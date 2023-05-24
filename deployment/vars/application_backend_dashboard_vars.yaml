@@ -1,6 +1,7 @@
 ---
-MASTODON_COUCHDB_HOST: ccc-db-svc-couchdb.comp90024.svc.cluster.local
-TWEET_COUCHDB_HOST: ccc-db-svc-couchdb.comp90024.svc.cluster.local
+# CouchDB in-cluster service URL
+MASTODON_COUCHDB_HOST: http://ccc-db-svc-couchdb.comp90024.svc.cluster.local
+TWEET_COUCHDB_HOST: http://ccc-db-svc-couchdb.comp90024.svc.cluster.local
 
 MASTODON_COUCHDB_PORT: 5984
 TWEET_COUCHDB_PORT: 5984
@@ -8,3 +9,10 @@ TWEET_COUCHDB_PORT: 5984
 MASTODON_COUCHDB_DATABASE: mastodon
 TWEET_COUCHDB_DATABASE: tweet
 SUDO_COUCHDB_DATABASE: sudo
+
+# Service NodePort
+DASHBOARD_PORT: 30080
+
+# Configuration for autoscaling
+minReplicas: 2
+maxReplicas: 4

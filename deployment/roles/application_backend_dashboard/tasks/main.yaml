@@ -1,5 +1,5 @@
 ---
-- name: Create twitter handler application
+- name: Create backend dashboard application
   kubernetes.core.k8s:
     state: present
     template: 'backend_dashboard.yaml.j2'
