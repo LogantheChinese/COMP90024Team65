@@ -1,0 +1,9 @@
+---
+# Note: You can scale up the cluster in different openstack API based cloud and availability zone,
+# as long as it can be accessed by other node and ansible host :D
+scaled_node_type: worker
+scaled_node_count: 1
+scaled_node_instance_type: uom.mse.2c9g
+scaled_node_worker_volume_size: 100
+scaled_node_cloud_name: mrc # This is the cloud name in clouds.yaml
+scaled_node_availability_zone: melbourne-qh2-uom

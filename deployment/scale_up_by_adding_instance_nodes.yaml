@@ -1,0 +1,37 @@
+---
+- name: Scale up cluster by add more worker nodes, provisioning infrastructure now
+  hosts: localhost
+  gather_facts: true
+  vars_files:
+    - vars/initial_cluster_openstack_vars.yaml
+    - vars/node_instance_scale_up_vars.yaml
+  roles:
+    - node_instance_scale_up
+
+- name: Configure basic environment for new worker nodes
+  hosts: scaled_worker_nodes
+  gather_facts: true
+  vars_files:
+    - vars/instance_vars.yaml
+  roles:
+    - node_environment_setup
+    - node_volume_mount
+
+- name: Install Kubernetes on new worker nodes and add them to the cluster
+  ansible.builtin.import_playbook: external/kubespray/scale.yml
+
+- name: Add labels to new worker nodes
+  hosts: scaled_worker_nodes
+  gather_facts: true
+  tasks:
+    - name: Label worker nodes in Kubernetes
+      kubernetes.core.k8s:
+        state: present
+        definition:
+          apiVersion: v1
+          kind: Node
+          metadata:
+            name: "{{ inventory_hostname }}"
+            labels:
+              ccc.nodes: database
+      delegate_to: "{{ groups['master_nodes'][0] }}"

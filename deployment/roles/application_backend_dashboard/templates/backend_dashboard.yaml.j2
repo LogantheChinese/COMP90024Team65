@@ -10,7 +10,7 @@ spec:
   ports:
     - port: 8080
       targetPort: 8080
-      nodePort: 30080
+      nodePort: {{ DASHBOARD_PORT }}
 
 ---
 apiVersion: apps/v1
@@ -19,7 +19,7 @@ metadata:
   name: comp90024-backend-dashboard
   namespace: comp90024
 spec:
-  replicas: 2
+  replicas: {{ minReplicas }}
   selector:
     matchLabels:
       app: backend-dashboard
@@ -87,8 +87,8 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: comp90024-backend-dashboard
-  minReplicas: 2
-  maxReplicas: 4
+  minReplicas: {{ minReplicas }}
+  maxReplicas: {{ maxReplicas }}
   metrics:
   - type: Resource
     resource:

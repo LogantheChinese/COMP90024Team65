@@ -1,12 +1,15 @@
 ---
+# Target list with url and name
 mastodon_harvester_target:
   - name: "social"
     url: "https://mastodon.social"
 
-
+# Mastodon account information
 ACCOUNT_MAIL: FILL_YOUR_ACCOUNT
 ACCOUNT_PASSWORD: FILL_YOUR_PASSWORD
 ACCOUNT_FILE: pytooter_clientcred.secret
+
+# CouchDB in-cluster service URL
 COUCHDB_HOST: ccc-db-svc-couchdb.comp90024.svc.cluster.local
 COUCHDB_PORT: 5984
 COUCHDB_DATABASE: mastodon

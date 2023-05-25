@@ -1,0 +1,8 @@
+- name: Deploy visualization backend dashboard
+  hosts: master_nodes
+  gather_facts: no
+  run_once: true
+  vars_files:
+    - vars/application_backend_dashboard_vars.yaml
+  roles:
+    - application_backend_dashboard

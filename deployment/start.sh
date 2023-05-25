@@ -1,4 +1,5 @@
 #!/bin/bash
+# Author: Team65 - Jiawei
 
 func_install_dependencies() {
     echo "Starting to install dependencies on local..."
@@ -64,11 +65,11 @@ EOF
 
 func_check_provision_settings() {
 
-    cat ./vars/openstack_vars.yaml
-    echo "Do you want to modify the Openstack provision settings in ./vars/openstack_vars.yaml? (y/n)"
+    cat ./vars/initial_cluster_openstack_vars.yaml
+    echo "Do you want to modify the Openstack provision settings in ./vars/initial_cluster_openstack_vars.yaml? (y/n)"
     read -p "Your choice: " modify_choice
     if [ "$modify_choice" == "y" ]; then
-        vi ./vars/openstack_vars.yaml
+        vi ./vars/initial_cluster_openstack_vars.yaml
     fi
     
 }
@@ -125,9 +126,14 @@ func_init_deploy() {
 }
 
 func_scale_up_cluster() {
-    echo "Starting to scale up the cluster..."
-    sleep 1
-    ansible-playbook scale_up_cluster.yaml
+    echo "Please check the current scale config in ./vars/node_instance_scale_up_vars.yaml:"
+    cat ./vars/node_instance_scale_up_vars.yaml
+    read -p "Do you want to proceed(yes/no)? " CONTINUE
+    if [ "$CONTINUE" != "yes" ]; then
+        echo "Exiting scale..."
+        exit 1
+    fi
+    ansible-playbook scale_up_by_adding_instance_nodes.yaml
 }
 
 func_scale_up_couchdb() {
@@ -180,12 +186,17 @@ func_update_mastodon_harvester() {
     
 }
 
-func_add_node() {
-    echo "Starting to submit new twitter files to the cluster..."
-    
+func_deploy_dashboard() {
+    echo "Deploying the dashboard..."
+    ansible-playbook application_backend_dashboard.yaml
+    echo "Dashboard has been deployed on cluster, you can access your visualization applicantion via this port on any cluster instance: " 
+    cat ./vars/application_backend_dashboard_vars.yaml | grep -E "DASHBOARD_PORT:"
 }
 
-# TODO: Work in progress
+func_retrieve_db_credentials() {
+    echo "Retrieving the CouchDB credentials..."
+    ansible-playbook retrieve_couchdb_credentials.yaml
+}
 
 while true
 do
@@ -198,16 +209,19 @@ do
     echo ""
     echo "------------------------ [B]Infrastructure Provision ---------------------"
     echo "5. Deploy the initial MRC instance, k8s cluster, and CouchDB Cluster"
-    echo "6. Scale up the Cluster by adding more nodes"
+    echo "6. Scale up the Cluster by adding more worker nodes"
     echo "7. Scale up the CouchDB cluster"
     echo ""
     echo "------------------------ [C]Application Deployment -----------------------"
     echo "8. Submit a new Twitter file processing job to the cluster via Dropbox URL"
     echo "9. Update Mastodon Harvester Target/Config on the cluster"
-    echo "10. Deploy frontend and backend on the cluster"
+    echo "10. Deploy visualization frontend and backend on the cluster"
+    echo ""
+    echo "------------------------ [D]Others ----------------------------------------"
+    echo "11. Retrieve the CouchDB credentials"
     echo ""
     echo "0. Exit"
-    read -p "Please enter your choice[0-10]: " choice
+    read -p "Please enter your choice[0-11]: " choice
 
     case $choice in
         1) func_install_dependencies ;;
@@ -218,11 +232,10 @@ do
         6) func_scale_up_cluster ;;
         7) func_scale_up_couchdb ;;
         8) func_submit_twitter_files ;;
-
-        # 5) func_init_deploy ;;
-        # 6) func_submit_twitter_files ;;
-        # 7) func_add_node ;;
-        # 8) echo "Exiting."; break ;;
-        # *) echo "Invalid option. Please input number from 1-8." ;;
+        9) func_update_mastodon_harvester ;;
+        10) func_deploy_dashboard ;;
+        11) func_retrieve_db_credentials ;;
+        0) echo "Exiting."; break ;;
+        *) echo "Invalid option. Please input number from 0-10." ;;
     esac
 done

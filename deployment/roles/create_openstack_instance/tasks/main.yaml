@@ -53,7 +53,7 @@
 
 - name: Wait for master nodes to be ready
   wait_for:
-    host: "{{ item.server.addresses['qh2-uom-internal'][0].addr }}"
+    host: "{{ item.server.access_ipv4 }}"
     port: 22
     delay: 10
     timeout: 600
@@ -62,7 +62,7 @@
 
 - name: Wait for worker nodes to be ready
   wait_for:
-    host: "{{ item.server.addresses['qh2-uom-internal'][0].addr }}"
+    host: "{{ item.server.access_ipv4 }}"
     port: 22
     delay: 10
     timeout: 600
@@ -71,7 +71,7 @@
 
 - name: Wait for auxiliary nodes to be ready
   wait_for:
-    host: "{{ item.server.addresses['qh2-uom-internal'][0].addr }}"
+    host: "{{ item.server.access_ipv4 }}"
     port: 22
     delay: 10
     timeout: 600
@@ -80,21 +80,21 @@
 
 - name: Add master nodes to inventory
   ansible.builtin.add_host:
-    name: "{{ item.server.addresses['qh2-uom-internal'][0].addr }}"
+    name: "{{ item.server.access_ipv4 }}"
     groups: master_nodes
   loop: "{{ master_node.results }}"
   when: item.server is defined
 
 - name: Add worker nodes to inventory
   ansible.builtin.add_host:
-    name: "{{ item.server.addresses['qh2-uom-internal'][0].addr }}"
+    name: "{{ item.server.access_ipv4 }}"
     groups: worker_nodes
   loop: "{{ worker_node.results }}"
   when: item.server is defined
 
 - name: Add auxiliary nodes to inventory
   ansible.builtin.add_host:
-    name: "{{ item.server.addresses['qh2-uom-internal'][0].addr }}"
+    name: "{{ item.server.access_ipv4 }}"
     groups: auxiliary_nodes
   loop: "{{ auxiliary_node.results }}"
   when: item.server is defined

@@ -1,0 +1,85 @@
+---
+- name: Create volumes for upcoming scaled worker nodes
+  openstack.cloud.volume:
+    cloud: "{{ scaled_node_cloud_name }}"
+    display_name: "scaled_worker_volume_{{ item }}"
+    size: "{{ scaled_node_worker_volume_size }}"
+    state: present
+    availability_zone: "{{ scaled_node_availability_zone }}"
+  loop: "{{ range(0, scaled_node_count) | list }}"
+  when: scaled_node_type == "worker"
+
+- name: Create security group in case it does not exist on scaled worker's cloud
+  openstack.cloud.security_group:
+    cloud: "{{ scaled_node_cloud_name }}"
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    state: present
+  loop: "{{ security_groups }}"
+
+- name: Add necessary ports to security group in case it does not exist on scaled worker's cloud
+  openstack.cloud.security_group_rule:
+    cloud: "{{ scaled_node_cloud_name }}"
+    security_group: "{{ item.0.name }}"
+    protocol: "{{ item.1.protocol }}"
+    port_range_min: "{{ item.1.from_port }}"
+    port_range_max: "{{ item.1.to_port }}"
+    remote_ip_prefix: "{{ item.1.cidr_ip }}"
+    state: present
+  loop: "{{ security_groups | subelements('rules') }}"
+
+- name: Create key pair in case it does not exist on scaled worker's cloud
+  openstack.cloud.keypair:
+    cloud: "{{ scaled_node_cloud_name }}"
+    name: "{{ key_pair_name }}"
+    public_key_file: ./.ssh/id_rsa.pub
+    state: present
+
+- name: Scale up cluster by add new worker nodes
+  openstack.cloud.server:
+    cloud: "{{ scaled_node_cloud_name }}"
+    name: "scaled_worker_node_{{ item }}"
+    image: "{{ instance_image }}"
+    flavor: "{{ scaled_node_instance_type }}"
+    availability_zone: "{{ scaled_node_availability_zone }}"
+    key_name: "{{ key_pair_name }}"
+    security_groups: "{{ (security_groups | map(attribute='name') | list) + ['default'] }}"
+    volumes:
+      - "scaled_worker_volume_{{ item }}"
+    state: present
+    auto_floating_ip: false
+    wait: true
+    timeout: 600
+  loop: "{{ range(0, scaled_node_count) | list }}"
+  register: scaled_worker_node
+  when: scaled_node_type == "worker"
+
+- name: Print scaled worker node information
+  ansible.builtin.debug:
+    msg: "Instance {{ item.server.name }} has been created. IP address is {{ item.server.access_ipv4 }}"
+  loop: "{{ scaled_worker_node.results }}"
+  when: item.server is defined
+
+- name: Wait for scaled worker nodes to be ready
+  wait_for:
+    host: "{{ item.server.access_ipv4 }}"
+    port: 22
+    delay: 10
+    timeout: 600
+  loop: "{{ scaled_worker_node.results }}"
+  when: item.server is defined
+
+- name: Add scaled nodes to inventory.ini
+  ansible.builtin.lineinfile:
+    path: ./inventory/mycluster/inventory.ini
+    line: "{{ item.server.access_ipv4 }}"
+    insertafter: '^\[worker_nodes\]$'
+  loop: "{{ scaled_worker_node.results }}"
+  when: item.server is defined
+
+- name: Add scaled worker nodes to dynamic inventory
+  ansible.builtin.add_host:
+    name: "{{ item.server.access_ipv4 }}"
+    groups: scaled_worker_nodes
+  loop: "{{ scaled_worker_node.results }}"
+  when: item.server is defined
